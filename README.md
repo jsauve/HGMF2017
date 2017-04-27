@@ -4,8 +4,9 @@ The unofficial app of the 2017 Duluth Homegrown Music Festival
 ## Setup
 
 ### App
-1. Rename the `SettingsTemplate.cs` file (not included to the solution) to `Settings.cs`.
-2. Replace all the values in `Settings.cs` with your various API keys.
+1. Install Visual Studio 2017 + the optional Xamarin tools during installation OR install Visual Studio for Mac.
+2. Rename the `SettingsTemplate.cs` file (not included to the solution) to `Settings.cs`.
+3. Replace all the values in `Settings.cs` with your various API keys.
 
 ### Backend
 1. Deploy the files from the `Backend` folder to an Azure Functions instance.

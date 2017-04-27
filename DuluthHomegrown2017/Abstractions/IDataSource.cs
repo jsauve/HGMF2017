@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace DuluthHomegrown2017
+{
+	/// <summary>
+	/// Defines a conract for data source that exposes CRUD operations for a specific type.
+	/// </summary>
+	public interface IDataSource<T>
+	{
+		event EventHandler OnError;
+
+		/// <summary>
+		/// Gets all the items.
+		/// </summary>
+		/// <returns>All the items.</returns>
+		Task<IEnumerable<T>> GetItems();
+	}
+}

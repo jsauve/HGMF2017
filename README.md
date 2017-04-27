@@ -20,5 +20,5 @@ If you want the app to function properly, at the bare minimum you'll need an Azu
 
 
 ### Backend
-1. Deploy the files from the `Backend` folder to an Azure Functions instance (https://azure.microsoft.com/en-us/services/functions/).
+1. Deploy the files from the `Backend` folder to an [Azure Functions(https://azure.microsoft.com/en-us/services/functions/) instance.
 2. Update the URL of your Azure Function in the [`DuluthHomegrown2017/Data/AzureFunctionDayDataSource.cs`](https://github.com/jsauve/HGMF2017/blob/96ae75fc02c1565f85a9ee5b5a505c99fa8339a1/DuluthHomegrown2017/Data/AzureFunctionDayDataSource.cs#L27) file.

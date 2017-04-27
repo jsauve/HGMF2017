@@ -1,6 +1,16 @@
 # HGMF2017
 The unofficial app of the 2017 Duluth Homegrown Music Festival
 
+<hr>
+
+![](Screenshots/featureimage.png)
+
+<br />
+
+![](Screenshots/featureimage-IOS.png)
+
+<hr>
+
 ## Setup
 
 ### App

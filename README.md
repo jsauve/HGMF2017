@@ -27,10 +27,10 @@ The unofficial app of the 2017 Duluth Homegrown Music Festival
 
 #### NOTE
 You may not need all the API keys that you see in `Settings.cs`. If you poke around in the code, you'll see that I'm using some services for crash reporting and analytics, like Pyze and Azure Mobile Center. If you don't need these, then just remove the few lines of code that enable these things:
-- [Mobile Center in iOS](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/iOS/AppDelegate.cs#L26)
-- [Mobile Center in Android](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/Droid/MainActivity.cs#L26)
-- [Pyze in iOS](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/iOS/AppDelegate.cs#L49-L51)
-- [Pyze in Android](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/Droid/MainActivity.cs#L27-L29)
+- [Mobile Center in iOS](https://github.com/jsauve/HGMF2017/blob/1b6ff09cbdf274018ff21982ab9c7f872ed29e0d/iOS/AppDelegate.cs#L27)
+- [Mobile Center in Android](https://github.com/jsauve/HGMF2017/blob/1b6ff09cbdf274018ff21982ab9c7f872ed29e0d/Droid/MainActivity.cs#L28)
+- [Pyze in iOS](https://github.com/jsauve/HGMF2017/blob/1b6ff09cbdf274018ff21982ab9c7f872ed29e0d/iOS/AppDelegate.cs#L48)
+- [Pyze in Android](https://github.com/jsauve/HGMF2017/blob/1b6ff09cbdf274018ff21982ab9c7f872ed29e0d/Droid/MainActivity.cs#L29)
 
 If you want the app to function properly, at the bare minimum you'll need an Azure account (for hosting the Azure Function code) and a Twitter developer account (for pulling in the tweets). Enter the relevant API keys for these services in the `Settings.cs` file.
 

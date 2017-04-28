@@ -1,11 +1,11 @@
 # HGMF2017
 The unofficial app of the 2017 Duluth Homegrown Music Festival
 
-## Get the apps
+## Get the apps now
 
-### [iOS](https://itunes.apple.com/us/app/hgmf2017-unofficial/id1229131015)
+### [HGMF2017 for iOS in the Apple App Store](https://itunes.apple.com/us/app/hgmf2017-unofficial/id1229131015)
 
-### [Android](https://play.google.com/store/apps/details?id=com.joesauve.duluthhomegrown2017)
+### [HGMF2017 for Android in the Google Play Store](https://play.google.com/store/apps/details?id=com.joesauve.duluthhomegrown2017)
 
 ## Screenshots
 

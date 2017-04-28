@@ -7,7 +7,7 @@ The unofficial app of the 2017 Duluth Homegrown Music Festival
 
 ### [Android](https://play.google.com/store/apps/details?id=com.joesauve.duluthhomegrown2017)
 
-### Screenshots
+## Screenshots
 
 <hr>
 

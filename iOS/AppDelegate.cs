@@ -10,6 +10,9 @@ using pyze.xamarin.iOS;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace DuluthHomegrown2017.iOS
 {
@@ -21,9 +24,11 @@ namespace DuluthHomegrown2017.iOS
 
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			var manager = BITHockeyManager.SharedHockeyManager;
-			manager.Configure(Settings.HOCKEYAPP_IOS_APP_ID);
-			manager.StartManager();
+            MobileCenter.Start(Settings.MOBILECENTER_IOS_APP_ID, typeof(Analytics), typeof(Crashes));
+
+			//var manager = BITHockeyManager.SharedHockeyManager;
+			//manager.Configure(Settings.HOCKEYAPP_IOS_APP_ID);
+			//manager.StartManager();
 
 			RegisterDependencies();
 

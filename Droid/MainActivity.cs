@@ -10,6 +10,9 @@ using Microsoft.Practices.ServiceLocation;
 using Xamarin.Forms.Platform.Android;
 using pyze.xamarin.android;
 using Xamarin.Forms;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace DuluthHomegrown2017.Droid
 {
@@ -21,6 +24,7 @@ namespace DuluthHomegrown2017.Droid
 
 		protected override void OnCreate(Bundle bundle)
 		{
+            MobileCenter.Start(Settings.MOBILECENTER_ANDROID_APP_ID, typeof(Analytics), typeof(Crashes));
 #if !DEBUG
 			Pyze.Initialize(this);
 #endif
@@ -42,7 +46,7 @@ namespace DuluthHomegrown2017.Droid
 		protected override void OnResume()
 		{
 			base.OnResume();
-			CrashManager.Register(this, Settings.HOCKEYAPP_ANDROID_APP_ID);
+			//CrashManager.Register(this, Settings.HOCKEYAPP_ANDROID_APP_ID);
 		}
 
 		/// <summary>

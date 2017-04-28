@@ -29,8 +29,8 @@ The unofficial app of the 2017 Duluth Homegrown Music Festival
 You may not need all the API keys that you see in `Settings.cs`. If you poke around in the code, you'll see that I'm using some services for crash reporting and analytics, like Pyze and Azure Mobile Center. If you don't need these, then just remove the few lines of code that enable these things:
 - [Mobile Center in iOS](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/iOS/AppDelegate.cs#L26)
 - [Mobile Center in Android](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/Droid/MainActivity.cs#L26)
-- [Pyze in iOS](https://github.com/jsauve/HGMF2017/blob/96ae75fc02c1565f85a9ee5b5a505c99fa8339a1/iOS/AppDelegate.cs#L45-L47)
-- [Pyze in Android](https://github.com/jsauve/HGMF2017/blob/96ae75fc02c1565f85a9ee5b5a505c99fa8339a1/Droid/Properties/AndroidManifest.xml#L8)
+- [Pyze in iOS](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/iOS/AppDelegate.cs#L49-L51)
+- [Pyze in Android](https://github.com/jsauve/HGMF2017/blob/d13a416f179ea8b09870c26082b01191f97d5dec/Droid/MainActivity.cs#L27-L29)
 
 If you want the app to function properly, at the bare minimum you'll need an Azure account (for hosting the Azure Function code) and a Twitter developer account (for pulling in the tweets). Enter the relevant API keys for these services in the `Settings.cs` file.
 

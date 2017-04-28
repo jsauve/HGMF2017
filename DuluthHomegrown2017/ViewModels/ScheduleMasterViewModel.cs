@@ -110,7 +110,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportError("ScheduleMasterViewModel-FetchDays");
+				ex.ReportError();
 			}
 			finally
 			{

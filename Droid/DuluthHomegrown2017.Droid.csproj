@@ -230,6 +230,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Services\VersionRetrievalService.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="Services\LoggerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

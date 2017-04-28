@@ -35,7 +35,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportError("FilesystemOnlyDayDataSource-GetItems");
+				ex.ReportError();
                 RaiseOnErrorEvent();
 			}
 

@@ -29,7 +29,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportError("AzureFunctionDataSource-GetItems");
+				ex.ReportError();
 
 				RaiseOnErrorEvent();
 			}

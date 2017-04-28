@@ -5,9 +5,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.joesauve.duluthhomegrown2017</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.28</string>
+	<string>1.29</string>
 	<key>CFBundleVersion</key>
-	<string>1.28</string>
+	<string>1.29</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -62,6 +62,13 @@
 				<true/>
 			</dict>
 			<key>duluthhomegrown2017.azurewebsites.net</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<false/>
+			</dict>
+			<key>mobile.azure.com</key>
 			<dict>
 				<key>NSExceptionRequiresForwardSecrecy</key>
 				<false/>

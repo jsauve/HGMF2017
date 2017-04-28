@@ -149,7 +149,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportError("TweetsViewModel-FetchTweets");
+				ex.ReportError();
 				RaiseOnErrorEvent();
 			}
 			finally

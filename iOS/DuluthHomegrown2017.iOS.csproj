@@ -248,6 +248,7 @@
     <Compile Include="Implementations\LocalBundleFileManager.cs" />
     <Compile Include="Renderers\StandardViewCellRenderer.cs" />
     <Compile Include="Services\VersionRetrievalService.cs" />
+    <Compile Include="Services\LoggerService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Schedule.json" />

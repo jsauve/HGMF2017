@@ -5,7 +5,7 @@ The unofficial app of the 2017 Duluth Homegrown Music Festival
 
 ![](Screenshots/featureimage.png)
 
-<br />
+<hr>
 
 ![](Screenshots/featureimage-IOS.png)
 

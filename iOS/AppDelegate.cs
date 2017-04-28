@@ -22,12 +22,10 @@ namespace DuluthHomegrown2017.iOS
 		IContainer _IoCContainer;
 
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
-		{
+        {
+#if !DEBUG
             MobileCenter.Start(Settings.MOBILECENTER_IOS_APP_ID, typeof(Analytics), typeof(Crashes));
-
-			//var manager = BITHockeyManager.SharedHockeyManager;
-			//manager.Configure(Settings.HOCKEYAPP_IOS_APP_ID);
-			//manager.StartManager();
+#endif
 
 			RegisterDependencies();
 
@@ -49,7 +47,6 @@ namespace DuluthHomegrown2017.iOS
 #if !DEBUG
 			Pyze.Initialize(Settings.PYZE_IOS_API_KEY);
 #endif
-
 			return base.WillFinishLaunching(uiApplication, launchOptions);
 		}
 

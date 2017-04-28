@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -149,7 +149,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportToHockeyApp("TweetsViewModel-FetchTweets");
+				ex.ReportError("TweetsViewModel-FetchTweets");
 				RaiseOnErrorEvent();
 			}
 			finally

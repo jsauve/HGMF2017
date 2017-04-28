@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -29,7 +29,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportToHockeyApp("AzureFunctionDataSource-GetItems");
+				ex.ReportError("AzureFunctionDataSource-GetItems");
 
 				RaiseOnErrorEvent();
 			}

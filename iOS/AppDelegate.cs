@@ -4,7 +4,6 @@ using Autofac;
 using Autofac.Extras.CommonServiceLocator;
 using CarouselView.FormsPlugin.iOS;
 using Foundation;
-using HockeyApp.iOS;
 using Microsoft.Practices.ServiceLocation;
 using pyze.xamarin.iOS;
 using UIKit;

@@ -5,7 +5,6 @@ using Android.OS;
 using Autofac;
 using Autofac.Extras.CommonServiceLocator;
 using CarouselView.FormsPlugin.Android;
-using HockeyApp.Android;
 using Microsoft.Practices.ServiceLocation;
 using Xamarin.Forms.Platform.Android;
 using pyze.xamarin.android;

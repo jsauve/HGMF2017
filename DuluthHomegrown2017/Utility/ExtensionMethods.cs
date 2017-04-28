@@ -19,12 +19,9 @@ namespace DuluthHomegrown2017
 
 	public static class ExceptionExtensions
 	{
-		public static void ReportToHockeyApp(this Exception ex, string hint)
+		public static void ReportError(this Exception ex, string hint)
 		{
-			var exDict = new Dictionary<string, string>();
-			//exDict.Add("Hint", hint);
-			//exDict.Add("StackTrace", ex?.StackTrace);
-			HockeyApp.MetricsManager.TrackEvent($"HandledException-{hint}");
+            // no handled exception reporting available ab this time. R.I.P. Xamarin Insights ;(...
 		}
 	}
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using MvvmHelpers;
 using Xamarin.Forms;
@@ -110,7 +110,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportToHockeyApp("ScheduleMasterViewModel-FetchDays");
+				ex.ReportError("ScheduleMasterViewModel-FetchDays");
 			}
 			finally
 			{

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,7 +35,7 @@ namespace DuluthHomegrown2017
 			}
 			catch (Exception ex)
 			{
-				ex.ReportToHockeyApp("FilesystemOnlyDayDataSource-GetItems");
+				ex.ReportError("FilesystemOnlyDayDataSource-GetItems");
                 RaiseOnErrorEvent();
 			}
 

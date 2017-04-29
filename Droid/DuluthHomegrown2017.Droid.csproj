@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>DuluthHomegrown2017.Droid</RootNamespace>
     <AssemblyName>DuluthHomegrown2017.Droid</AssemblyName>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -231,6 +231,7 @@
     <Compile Include="Services\VersionRetrievalService.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="Services\LoggerService.cs" />
+    <Compile Include="Services\LyftService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -250,6 +251,8 @@
     <AndroidResource Include="Resources\drawable\TwitterLogo.png" />
     <AndroidResource Include="Resources\drawable\HGMFlogo.png" />
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\drawable\LyftToolbar.png" />
+    <AndroidResource Include="Resources\drawable\PhotosToolbar.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Implementations\" />

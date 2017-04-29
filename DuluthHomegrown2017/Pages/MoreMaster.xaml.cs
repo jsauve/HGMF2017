@@ -14,12 +14,12 @@ namespace DuluthHomegrown2017
 			BindingContext = this;
 
 			Names = new ObservableCollection<MoreItem>() {
-			new MoreItem("Tickets"),
-			new MoreItem("About Homegrown"),
-			new MoreItem("Contact"),
-			new MoreItem("News"),
-			new MoreItem("About this app")
-		};
+				new MoreItem("Tickets"),
+				new MoreItem("About Homegrown"),
+				new MoreItem("Contact"),
+				new MoreItem("News"),
+				new MoreItem("About this app")
+			};
 
 			InitializeComponent();
 		}

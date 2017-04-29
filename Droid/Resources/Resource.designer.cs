@@ -4690,73 +4690,79 @@ namespace DuluthHomegrown2017.Droid
 			public const int in_app_round_corner = 2130837737;
 			
 			// aapt resource value: 0x7f0200ea
-			public const int mr_button_connected_dark = 2130837738;
+			public const int LyftToolbar = 2130837738;
 			
 			// aapt resource value: 0x7f0200eb
-			public const int mr_button_connected_light = 2130837739;
+			public const int mr_button_connected_dark = 2130837739;
 			
 			// aapt resource value: 0x7f0200ec
-			public const int mr_button_connecting_dark = 2130837740;
+			public const int mr_button_connected_light = 2130837740;
 			
 			// aapt resource value: 0x7f0200ed
-			public const int mr_button_connecting_light = 2130837741;
+			public const int mr_button_connecting_dark = 2130837741;
 			
 			// aapt resource value: 0x7f0200ee
-			public const int mr_button_dark = 2130837742;
+			public const int mr_button_connecting_light = 2130837742;
 			
 			// aapt resource value: 0x7f0200ef
-			public const int mr_button_light = 2130837743;
+			public const int mr_button_dark = 2130837743;
 			
 			// aapt resource value: 0x7f0200f0
-			public const int mr_dialog_close_dark = 2130837744;
+			public const int mr_button_light = 2130837744;
 			
 			// aapt resource value: 0x7f0200f1
-			public const int mr_dialog_close_light = 2130837745;
+			public const int mr_dialog_close_dark = 2130837745;
 			
 			// aapt resource value: 0x7f0200f2
-			public const int mr_dialog_material_background_dark = 2130837746;
+			public const int mr_dialog_close_light = 2130837746;
 			
 			// aapt resource value: 0x7f0200f3
-			public const int mr_dialog_material_background_light = 2130837747;
+			public const int mr_dialog_material_background_dark = 2130837747;
 			
 			// aapt resource value: 0x7f0200f4
-			public const int mr_group_collapse = 2130837748;
+			public const int mr_dialog_material_background_light = 2130837748;
 			
 			// aapt resource value: 0x7f0200f5
-			public const int mr_group_expand = 2130837749;
+			public const int mr_group_collapse = 2130837749;
 			
 			// aapt resource value: 0x7f0200f6
-			public const int mr_media_pause_dark = 2130837750;
+			public const int mr_group_expand = 2130837750;
 			
 			// aapt resource value: 0x7f0200f7
-			public const int mr_media_pause_light = 2130837751;
+			public const int mr_media_pause_dark = 2130837751;
 			
 			// aapt resource value: 0x7f0200f8
-			public const int mr_media_play_dark = 2130837752;
+			public const int mr_media_pause_light = 2130837752;
 			
 			// aapt resource value: 0x7f0200f9
-			public const int mr_media_play_light = 2130837753;
+			public const int mr_media_play_dark = 2130837753;
 			
 			// aapt resource value: 0x7f0200fa
-			public const int mr_vol_type_audiotrack_dark = 2130837754;
+			public const int mr_media_play_light = 2130837754;
 			
 			// aapt resource value: 0x7f0200fb
-			public const int mr_vol_type_audiotrack_light = 2130837755;
+			public const int mr_vol_type_audiotrack_dark = 2130837755;
 			
 			// aapt resource value: 0x7f0200fc
-			public const int navigation_empty_icon = 2130837756;
-			
-			// aapt resource value: 0x7f020100
-			public const int notification_template_icon_bg = 2130837760;
+			public const int mr_vol_type_audiotrack_light = 2130837756;
 			
 			// aapt resource value: 0x7f0200fd
-			public const int rounded_button = 2130837757;
+			public const int navigation_empty_icon = 2130837757;
+			
+			// aapt resource value: 0x7f020102
+			public const int notification_template_icon_bg = 2130837762;
 			
 			// aapt resource value: 0x7f0200fe
-			public const int splash_screen = 2130837758;
+			public const int PhotosToolbar = 2130837758;
 			
 			// aapt resource value: 0x7f0200ff
-			public const int TwitterLogo = 2130837759;
+			public const int rounded_button = 2130837759;
+			
+			// aapt resource value: 0x7f020100
+			public const int splash_screen = 2130837760;
+			
+			// aapt resource value: 0x7f020101
+			public const int TwitterLogo = 2130837761;
 			
 			static Drawable()
 			{

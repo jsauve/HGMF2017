@@ -249,6 +249,7 @@
     <Compile Include="Renderers\StandardViewCellRenderer.cs" />
     <Compile Include="Services\VersionRetrievalService.cs" />
     <Compile Include="Services\LoggerService.cs" />
+    <Compile Include="Services\LyftService.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Schedule.json" />
@@ -260,6 +261,10 @@
     <BundleResource Include="Resources\Twitter.png" />
     <BundleResource Include="Resources\Twitter%402x.png" />
     <BundleResource Include="Resources\TwitterLogo.png" />
+    <BundleResource Include="Resources\LyftToolbar%402x.png" />
+    <BundleResource Include="Resources\LyftToolbar%403x.png" />
+    <BundleResource Include="Resources\PhotosToolbar%402x.png" />
+    <BundleResource Include="Resources\PhotosToolbar%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />

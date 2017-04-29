@@ -16,6 +16,10 @@ namespace DuluthHomegrown2017
 
 			// setup Schedule tab
 			var scheduleNavPage = new NavigationPage(new ScheduleMaster() { BindingContext = new ScheduleMasterViewModel() }) { Title = "Schedule" };
+			var lyftToolBarItem = new ToolbarItem("Lyft", "LyftToolbar", () => { 
+				DependencyService.Get<ILyftService>().OpenLyft();
+			});
+			scheduleNavPage.ToolbarItems.Add(lyftToolBarItem);
 			if (Device.RuntimePlatform == "iOS")
 				scheduleNavPage.Icon = "Calendar";
 
@@ -24,7 +28,7 @@ namespace DuluthHomegrown2017
 			var tweetsViewModel = new TweetsViewModel();
 			var tweetsPage = new Tweets() { BindingContext = tweetsViewModel };
 			NavigationPage tweetsNavPage = new NavigationPage(tweetsPage) { Title = "Tweets" };
-			var photosToolBarItem = new ToolbarItem("Photos", null, async () => {
+			var photosToolBarItem = new ToolbarItem("Photos", "PhotosToolbar", async () => {
 				if (tweetsViewModel.ImageUrls.Count < 1)
 				{
 					await App.DisplayNoPhotosAlert(this);

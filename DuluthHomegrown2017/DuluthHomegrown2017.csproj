@@ -122,6 +122,7 @@
     <Compile Include="Models\Venue.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Services\ILoggerService.cs" />
+    <Compile Include="Services\ILyftService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack">

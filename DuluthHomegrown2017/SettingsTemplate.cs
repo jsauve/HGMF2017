@@ -10,5 +10,6 @@ namespace DuluthHomegrown2017
 		public static readonly string AZURE_FUNCTION_SCHEDULE_API_KEY = "AZURE_FUNCTION_SCHEDULE_API_KEY_VALUE";
         public static readonly string MOBILECENTER_IOS_APP_ID =         "MOBILECENTER_IOS_APP_ID_VALUE";
         public static readonly string MOBILECENTER_ANDROID_APP_ID =     "MOBILECENTER_ANDROID_APP_ID_VALUE";
+		public static readonly string LYFT_CLIENT_ID = 					"LYFT_CLIENT_ID_VALUE";
 	}
 }

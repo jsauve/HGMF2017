@@ -5,9 +5,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.joesauve.duluthhomegrown2017</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.29</string>
+	<string>1.30</string>
 	<key>CFBundleVersion</key>
-	<string>1.29</string>
+	<string>1.30</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -83,5 +83,9 @@
 	<string>This app needs access to the camera to take photos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs access to photos.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>lyft</string>
+	</array>
 </dict>
 </plist>

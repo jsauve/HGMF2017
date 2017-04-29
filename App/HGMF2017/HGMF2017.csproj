@@ -82,7 +82,7 @@
     <Compile Include="Converters\TweetImageConverter.cs" />
     <Compile Include="Models\TweetWrapper.cs" />
     <Compile Include="Converters\TweetTimestampConverter.cs" />
-    <Compile Include="Data\AzureFunctionDayDataSource.cs" />
+    <Compile Include="Data\DayDataSource.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Models\Performance.cs" />
     <Compile Include="Models\Venue.cs" />

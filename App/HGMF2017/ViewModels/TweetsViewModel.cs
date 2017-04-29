@@ -147,8 +147,8 @@ namespace HGMF2017
 			{
 				CredentialStore = new InMemoryCredentialStore()
 				{
-					ConsumerKey = Settings.TWITTER_API_CONSUMER_KEY,
-					ConsumerSecret = Settings.TWITTER_API_CONSUMER_SECRET
+					ConsumerKey = HGMF2017.Settings.TWITTER_API_CONSUMER_KEY,
+					ConsumerSecret = HGMF2017.Settings.TWITTER_API_CONSUMER_SECRET
 				}
 			};
 

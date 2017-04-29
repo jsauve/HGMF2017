@@ -22,7 +22,7 @@ namespace HGMF2017
 
 		public async Task<IEnumerable<Day>> GetItems()
 		{
-			HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, $"https://duluthhomegrown2017.azurewebsites.net/api/Schedule?code={HGMF2017.Settings.AZURE_FUNCTION_SCHEDULE_API_KEY}");
+			HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, $"https://duluthhomegrown2017.azurewebsites.net/api/Schedule?code={Settings.AZURE_FUNCTION_SCHEDULE_API_KEY}");
 			return JsonConvert.DeserializeObject<List<Day>>(await _HttpClient.GetStringAsync(req.RequestUri));
 		}
 	}

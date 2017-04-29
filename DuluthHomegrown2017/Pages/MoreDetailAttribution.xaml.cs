@@ -1,5 +1,5 @@
-﻿using System;
-using System.Colections.Generic;
+using System;
+using System.Collections.Generic;
 
 using Xamarin.Forms;
 
@@ -12,14 +12,11 @@ namespace DuluthHomegrown2017
 			BindingContext = this;
 
 			InitializeComponent();
-
 			
-
-				IconLabel.IsEnabled = false;
-				IconLabel.IsVisible = false;
-				IconLabelText.IsEnabled = false;
-				IconLabelText.IsVisible = false;
-			
+			IconLabel.IsEnabled = false;
+			IconLabel.IsVisible = false;
+			IconLabelText.IsEnabled = false;
+			IconLabelText.IsVisible = false;
 		}
 
 		public string Version 

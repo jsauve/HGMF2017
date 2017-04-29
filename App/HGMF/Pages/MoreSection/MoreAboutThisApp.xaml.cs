@@ -2,9 +2,9 @@ using Xamarin.Forms;
 
 namespace HGMF2017
 {
-	public partial class MoreDetailAttribution : ContentPage
+	public partial class MoreAboutThisApp : ContentPage
 	{
-		public MoreDetailAttribution()
+		public MoreAboutThisApp()
 		{
 			BindingContext = this;
 

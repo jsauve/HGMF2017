@@ -9,8 +9,6 @@ namespace HGMF2017
 	/// </summary>
 	public interface IDataSource<T>
 	{
-		event EventHandler OnError;
-
 		/// <summary>
 		/// Gets all the items.
 		/// </summary>

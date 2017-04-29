@@ -41,7 +41,7 @@ namespace HGMF2017
 		{
 			_DataSource = DependencyService.Get<IDataSource<Day>>();
 
-			_DataSource.OnError += DataSource_OnError;
+			//_DataSource.OnError += DataSource_OnError;
 		}
 
 		void DataSource_OnError(object sender, EventArgs e)
@@ -109,6 +109,7 @@ namespace HGMF2017
 			}
 			catch (Exception ex)
 			{
+				RaiseOnErrorEvent();
 				ex.ReportError();
 			}
 			finally

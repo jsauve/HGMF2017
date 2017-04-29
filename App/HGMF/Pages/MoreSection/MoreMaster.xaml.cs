@@ -36,19 +36,19 @@ namespace HGMF2017
 			switch (name)
 			{
 			case "Tickets":
-				this.Navigation.PushAsync(new MoreDetailTickets());
+				this.Navigation.PushAsync(new MoreTickets());
 				break;
 			case "About Homegrown":
-				this.Navigation.PushAsync(new MoreDetailAbout());
+				this.Navigation.PushAsync(new MoreAboutHomegrown());
 				break;
 			case "Contact":
-				this.Navigation.PushAsync(new MoreDetailContact());
+				this.Navigation.PushAsync(new MoreContact());
 				break;
 			case "News":
-				this.Navigation.PushAsync(new News());
+				this.Navigation.PushAsync(new MoreNews());
 				break;
 			case "About this app":
-				this.Navigation.PushAsync(new MoreDetailAttribution());
+				this.Navigation.PushAsync(new MoreAboutThisApp());
 				break;
 			}
 

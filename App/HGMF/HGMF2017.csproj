@@ -32,22 +32,22 @@
     <EmbeddedResource Include="Pages\Main.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MoreSection\MoreDetailAbout.xaml">
+    <EmbeddedResource Include="Pages\MoreSection\MoreAbout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MoreSection\MoreDetailAttribution.xaml">
+    <EmbeddedResource Include="Pages\MoreSection\MoreAboutThisApp.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MoreSection\MoreDetailContact.xaml">
+    <EmbeddedResource Include="Pages\MoreSection\MoreContact.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MoreSection\MoreDetailTickets.xaml">
+    <EmbeddedResource Include="Pages\MoreSection\MoreTickets.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\MoreSection\MoreMaster.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pages\MoreSection\News.xaml">
+    <EmbeddedResource Include="Pages\MoreSection\MoreNews.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\TwitterSection\TweetImageDetailPage.xaml">
@@ -87,23 +87,23 @@
     <Compile Include="Models\Performance.cs" />
     <Compile Include="Models\Venue.cs" />
     <Compile Include="Models\Day.cs" />
-    <Compile Include="Pages\MoreSection\MoreDetailAbout.xaml.cs">
-      <DependentUpon>MoreDetailAbout.xaml</DependentUpon>
+    <Compile Include="Pages\MoreSection\MoreAboutHomegrown.xaml.cs">
+      <DependentUpon>MoreAbout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MoreSection\MoreDetailAttribution.xaml.cs">
-      <DependentUpon>MoreDetailAttribution.xaml</DependentUpon>
+    <Compile Include="Pages\MoreSection\MoreAboutThisApp.xaml.cs">
+      <DependentUpon>MoreAboutThisApp.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MoreSection\MoreDetailContact.xaml.cs">
-      <DependentUpon>MoreDetailContact.xaml</DependentUpon>
+    <Compile Include="Pages\MoreSection\MoreContact.xaml.cs">
+      <DependentUpon>MoreContact.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MoreSection\MoreDetailTickets.xaml.cs">
-      <DependentUpon>MoreDetailTickets.xaml</DependentUpon>
+    <Compile Include="Pages\MoreSection\MoreTickets.xaml.cs">
+      <DependentUpon>MoreTickets.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MoreSection\MoreMaster.xaml.cs">
       <DependentUpon>MoreMaster.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MoreSection\News.xaml.cs">
-      <DependentUpon>News.xaml</DependentUpon>
+    <Compile Include="Pages\MoreSection\MoreNews.xaml.cs">
+      <DependentUpon>MoreNews.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TwitterSection\TweetImageDetailPage.xaml.cs">
       <DependentUpon>TweetImageDetailPage.xaml</DependentUpon>

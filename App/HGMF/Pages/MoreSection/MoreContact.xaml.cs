@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace HGMF2017
 {
-	public partial class MoreDetailContact : ContentPage
+	public partial class MoreContact : ContentPage
 	{
-		public MoreDetailContact()
+		public MoreContact()
 		{
 			InitializeComponent();
 		}

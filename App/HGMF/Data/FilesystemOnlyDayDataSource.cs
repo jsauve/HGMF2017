@@ -31,19 +31,9 @@ namespace HGMF2017
 		{
 			var result = new List<Day>();
 
-			try
-			{
-				await EnsureInitialized().ConfigureAwait(false);
+			await EnsureInitialized().ConfigureAwait(false);
 
-				result = await Task.FromResult(_Days).ConfigureAwait(false);
-			}
-			catch (Exception ex)
-			{
-				ex.ReportError();
-				RaiseOnErrorEvent();
-			}
-
-			return result;
+			return await Task.FromResult(_Days).ConfigureAwait(false);
 		}
 
 		#endregion
@@ -73,38 +63,5 @@ namespace HGMF2017
 		}
 
 		#endregion
-
-		event EventHandler OnErrorEvent;
-
-		object objectLock = new Object();
-
-		/// <summary>
-		/// Explicit implementation of events is necessary for events from interfaces
-		/// </summary>
-		event EventHandler IDataSource<Day>.OnError
-		{
-			add
-			{
-				lock (objectLock)
-				{
-					OnErrorEvent += value;
-				}
-			}
-			remove
-			{
-				lock (objectLock)
-				{
-					OnErrorEvent -= value;
-				}
-			}
-		}
-
-		protected virtual void RaiseOnErrorEvent()
-		{
-			EventHandler handler = OnErrorEvent;
-
-			if (handler != null)
-				handler(this, new EventArgs());
-		}
 	}
 }

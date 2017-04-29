@@ -5,12 +5,11 @@ using Xamarin.Forms;
 
 namespace HGMF2017
 {
-	public partial class MoreDetailTickets : ContentPage
+	public partial class MoreAboutHomegrown : ContentPage
 	{
-		public MoreDetailTickets()
+		public MoreAboutHomegrown()
 		{
 			InitializeComponent();
 		}
 	}
-
 }

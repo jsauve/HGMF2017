@@ -22,52 +22,10 @@ namespace HGMF2017
 
 		public async Task<IEnumerable<Day>> GetItems()
 		{
-			//try
-			//{
-				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, $"https://duluthhomegrown2017.azurewebsites.net/api/Schedule?code={Settings.AZURE_FUNCTION_SCHEDULE_API_KEY}");
-				return JsonConvert.DeserializeObject<List<Day>>(await _HttpClient.GetStringAsync(req.RequestUri));
-			//}
-			//catch (Exception ex)
-			//{
-			//	ex.ReportError();
-
-			//	RaiseOnErrorEvent();
-			//}
+			HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, $"https://duluthhomegrown2017.azurewebsites.net/api/Schedule?code={Settings.AZURE_FUNCTION_SCHEDULE_API_KEY}");
+			return JsonConvert.DeserializeObject<List<Day>>(await _HttpClient.GetStringAsync(req.RequestUri));
 
 			return new List<Day>();
-		}
-
-		event EventHandler OnErrorEvent;
-
-		object objectLock = new object();
-
-		/// <summary>
-		/// Explicit implementation of events is necessary for events from interfaces
-		/// </summary>
-		event EventHandler IDataSource<Day>.OnError
-		{
-			add
-			{
-				lock (objectLock)
-				{
-					OnErrorEvent += value;
-				}
-			}
-			remove
-			{
-				lock (objectLock)
-				{
-					OnErrorEvent -= value;
-				}
-			}
-		}
-
-		protected virtual void RaiseOnErrorEvent()
-		{
-			EventHandler handler = OnErrorEvent;
-
-			if (handler != null)
-				handler(this, new EventArgs());
 		}
 	}
 }

@@ -195,10 +195,19 @@
     "Date":"Tue, May 2",
     "Venues":[  
       {  
-        "Name":"Bent Paddle Brewing Co.",
+        "Name":"Sir Benedict’s Tavern on the Lake",
         "Performances":[  
           {  
             "Name":"Sing! A Women’s Chorus",
+            "Time":"2017-05-02T18:00Z"
+          }
+        ]
+      },
+      {  
+        "Name":"Bent Paddle Brewing Co.",
+        "Performances":[  
+          {  
+            "Name":"Jen West",
             "Time":"2017-05-02T18:00Z"
           },
           {  
@@ -419,7 +428,7 @@
         "Name":"Kom-on-Inn",
         "Performances":[  
           {  
-            "Name":"Chase Down Blues",
+            "Name":"Chase Down Blue",
             "Time":"2017-05-03T22:15Z"
           },
           {  

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Colections.Generic;
 
 using Xamarin.Forms;
 
@@ -13,13 +13,13 @@ namespace DuluthHomegrown2017
 
 			InitializeComponent();
 
-			if (Device.RuntimePlatform == "Android")
-			{
+			
+
 				IconLabel.IsEnabled = false;
 				IconLabel.IsVisible = false;
 				IconLabelText.IsEnabled = false;
 				IconLabelText.IsVisible = false;
-			}
+			
 		}
 
 		public string Version 

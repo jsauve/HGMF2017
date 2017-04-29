@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class Settings
 	{

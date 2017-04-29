@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace DuluthHomegrown2017.iOS
+namespace HGMF2017.iOS
 {
 	public class Application
 	{

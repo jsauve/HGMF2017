@@ -1,8 +1,8 @@
-﻿using Android.Content.Res;
+using Android.Content.Res;
 using System.IO;
 using Plugin.CurrentActivity;
 
-namespace DuluthHomegrown2017.Droid
+namespace HGMF2017.Droid
 {
 	public class LocalBundleFileManager : ILocalBundleFileManager
 	{

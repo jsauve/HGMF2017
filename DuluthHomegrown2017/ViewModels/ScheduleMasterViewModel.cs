@@ -5,7 +5,7 @@ using Xamarin.Forms;
 using Microsoft.Practices.ServiceLocation;
 using Plugin.Connectivity;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class ScheduleMasterViewModel : BaseNavigationViewModel
 	{

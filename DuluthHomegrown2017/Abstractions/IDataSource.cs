@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	/// <summary>
 	/// Defines a conract for data source that exposes CRUD operations for a specific type.

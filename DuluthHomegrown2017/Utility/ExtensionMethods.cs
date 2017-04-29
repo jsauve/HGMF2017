@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using MvvmHelpers;
 using System.Linq;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Xamarin.Forms;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
     public static class ListExtensions
     {

@@ -13,7 +13,7 @@ using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
 
-namespace DuluthHomegrown2017.iOS
+namespace HGMF2017.iOS
 {
 	[Register("AppDelegate")]
 	public partial class AppDelegate : FormsApplicationDelegate

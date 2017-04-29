@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class AzureFunctionDayDataSource : IDataSource<Day>
 	{

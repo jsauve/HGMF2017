@@ -1,5 +1,5 @@
-﻿using System;
-namespace DuluthHomegrown2017
+using System;
+namespace HGMF2017
 {
 	/// <summary>
 	/// A type that mirrors the properties of Microsoft.Azure.Mobile.Server.EntityData.

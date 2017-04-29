@@ -2,7 +2,7 @@ using System;
 using Newtonsoft.Json;
 using MvvmHelpers;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class Performance : ObservableObject
 	{

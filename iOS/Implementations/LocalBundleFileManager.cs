@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.IO;
 using Foundation;
 using System.Threading.Tasks;
 
-namespace DuluthHomegrown2017.iOS
+namespace HGMF2017.iOS
 {
 	public class LocalBundleFileManager : ILocalBundleFileManager
 	{

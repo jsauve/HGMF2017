@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Globalization;
 using LinqToTwitter;
 using Xamarin.Forms;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class TweetImageConverter : IValueConverter
 	{

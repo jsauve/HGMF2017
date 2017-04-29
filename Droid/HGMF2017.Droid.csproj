@@ -6,8 +6,8 @@
     <ProjectGuid>{1DB15AD8-0B86-409B-9D94-365A958193B0}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>DuluthHomegrown2017.Droid</RootNamespace>
-    <AssemblyName>DuluthHomegrown2017.Droid</AssemblyName>
+    <RootNamespace>HGMF2017.Droid</RootNamespace>
+    <AssemblyName>HGMF2017.Droid</AssemblyName>
     <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -217,12 +217,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DuluthHomegrown2017\DuluthHomegrown2017.csproj">
-      <Project>{5E2C6CB7-7697-44E3-A8F4-BC8965E449DF}</Project>
-      <Name>DuluthHomegrown2017</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -266,6 +260,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\Schedule.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DuluthHomegrown2017\HGMF2017.csproj">
+      <Project>{5E2C6CB7-7697-44E3-A8F4-BC8965E449DF}</Project>
+      <Name>HGMF2017</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

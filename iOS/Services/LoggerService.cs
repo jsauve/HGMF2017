@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using DuluthHomegrown2017.iOS;
+using HGMF2017.iOS;
 using Microsoft.Azure.Mobile.Analytics;
 using Xamarin.Forms;
 
 [assembly: Dependency (typeof (LoggerService))]
-namespace DuluthHomegrown2017.iOS
+namespace HGMF2017.iOS
 {
     public class LoggerService : ILoggerService
     {
@@ -19,7 +19,6 @@ namespace DuluthHomegrown2017.iOS
 
                 MethodBase site = ex?.TargetSite;
 
-                //var typeName = site?.ReflectedType?.FullName.Replace("DuluthHomegrown2017", "");
                 var typeName = site?.ReflectedType?.DeclaringType?.Name;
 
                 var methodName = site?.ReflectedType?.Name;

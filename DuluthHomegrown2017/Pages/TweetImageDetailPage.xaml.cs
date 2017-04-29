@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public partial class TweetImageDetailPage : ContentPage
 	{

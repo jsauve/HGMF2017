@@ -6,7 +6,7 @@ using Microsoft.Practices.ServiceLocation;
 using Newtonsoft.Json;
 using PCLStorage;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	/// <summary>
 	/// This implementation of IDataSource<Day> is intended for loading the 

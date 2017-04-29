@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 using MvvmHelpers;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 
 	public class Day : ObservableObject

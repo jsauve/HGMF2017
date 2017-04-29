@@ -1,11 +1,11 @@
-﻿using System;
-using DuluthHomegrown2017.iOS;
+using System;
+using HGMF2017.iOS;
 using Foundation;
 using UIKit;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(LyftService))]
-namespace DuluthHomegrown2017.iOS
+namespace HGMF2017.iOS
 {
 	public class LyftService : ILyftService
 	{

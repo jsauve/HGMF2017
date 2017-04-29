@@ -2,7 +2,7 @@
 <ContentPage 
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="DuluthHomegrown2017.ScheduleDetail" 
+	x:Class="HGMF2017.ScheduleDetail" 
 	xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
 	Title="{Binding SelectedDay.Date}">
 	<StackLayout>

@@ -1,8 +1,7 @@
-﻿using MvvmHelpers;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class ScheduleDetailViewModel : BaseNavigationViewModel
 	{

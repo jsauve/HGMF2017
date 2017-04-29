@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LinqToTwitter;
 using Xamarin.Forms;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public partial class Tweets : ContentPage
 	{

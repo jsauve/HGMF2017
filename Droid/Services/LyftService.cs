@@ -1,16 +1,16 @@
-﻿using System;
+using System;
 using Android.Content;
 using Android.Content.PM;
-using DuluthHomegrown2017.Droid;
+using HGMF2017.Droid;
 using Plugin.CurrentActivity;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(LyftService))]
-namespace DuluthHomegrown2017.Droid
+namespace HGMF2017.Droid
 {
 	public class LyftService : ILyftService
 	{
-		static readonly String LYFT_PACKAGE = "me.lyft.android";
+		static readonly string LYFT_PACKAGE = "me.lyft.android";
 
 		public void OpenLyft()
 		{
@@ -41,7 +41,7 @@ namespace DuluthHomegrown2017.Droid
 				}
 				catch
 				{
-					// ducked 
+					// intentionally ducked
 				}
 
 				return false;

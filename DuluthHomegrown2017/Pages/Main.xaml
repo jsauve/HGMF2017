@@ -2,6 +2,6 @@
 <TabbedPage 
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="DuluthHomegrown2017.Main"
-	xmlns:local="clr-namespace:DuluthHomegrown2017;assembly=DuluthHomegrown2017">
+	x:Class="HGMF2017.Main"
+	xmlns:local="clr-namespace:HGMF2017;assembly=HGMF2017">
 </TabbedPage>

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 using Xamarin.Forms;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public partial class Main : Xamarin.Forms.TabbedPage
 	{
@@ -16,7 +14,7 @@ namespace DuluthHomegrown2017
 
 			// setup Schedule tab
 			var scheduleNavPage = new NavigationPage(new ScheduleMaster() { BindingContext = new ScheduleMasterViewModel() }) { Title = "Schedule" };
-			var lyftToolBarItem = new ToolbarItem("Lyft", "LyftToolbar", () => { 
+			var lyftToolBarItem = new ToolbarItem("Lyft", "LyftToolbar", () => {
 				DependencyService.Get<ILyftService>().OpenLyft();
 			});
 			scheduleNavPage.ToolbarItems.Add(lyftToolBarItem);

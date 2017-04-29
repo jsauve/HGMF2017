@@ -1,5 +1,5 @@
-﻿using System;
-namespace DuluthHomegrown2017
+using System;
+namespace HGMF2017
 {
 	public interface IVersionRetrievalService
 	{

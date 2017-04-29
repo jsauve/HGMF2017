@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
 
-namespace DuluthHomegrown2017.UITest
+namespace HGMF2017.UITest
 {
 	public class AppInitializer
 	{

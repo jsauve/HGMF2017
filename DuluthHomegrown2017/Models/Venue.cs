@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using MvvmHelpers;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class Venue : ObservableObject
 	{

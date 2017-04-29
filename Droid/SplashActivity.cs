@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -6,7 +6,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Widget;
 
-namespace DuluthHomegrown2017.Droid
+namespace HGMF2017.Droid
 {
 	[Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
 	public class SplashActivity : AppCompatActivity

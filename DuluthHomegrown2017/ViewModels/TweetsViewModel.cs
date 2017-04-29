@@ -8,7 +8,7 @@ using MvvmHelpers;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class TweetsViewModel : BaseNavigationViewModel
 	{
@@ -105,7 +105,7 @@ namespace DuluthHomegrown2017
 			{
 				var statuses = new List<Status>();
 
-				statuses.AddRange(await Search("#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"));
+				statuses.AddRange(await SearchTweets("#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"));
 
 				if (statuses.Count > 0)
 				{
@@ -121,30 +121,11 @@ namespace DuluthHomegrown2017
 
 						imageUrl = s?.Entities?.MediaEntities?.FirstOrDefault(x => x.Type == "photo")?.MediaUrl;
 
-						if (!String.IsNullOrWhiteSpace(imageUrl))
+						if (!string.IsNullOrWhiteSpace(imageUrl))
 							ImageUrls.Add(new TweetImageWrapper(imageUrl, s?.Text, s?.User?.ScreenNameResponse, s?.Entities?.HashTagEntities?.Select(x => x.Tag)?.ToList()));
 
 						Tweets.Add(new TweetWrapper(s, imageUrl));
 					}
-
-#if DEBUG
-					//if (Tweets.Count > 0)
-					//{
-					//	foreach (var t in Tweets)
-					//	{
-					//		System.Diagnostics.Debug.WriteLine($"ScreenNameResponse: {t.Status?.User?.ScreenNameResponse}");
-					//		System.Diagnostics.Debug.WriteLine($"Text: {t.Status.Text}");
-					//		System.Diagnostics.Debug.WriteLine($"Retweeted: {t.Status.Retweeted}");
-					//		System.Diagnostics.Debug.WriteLine($"CurrentUserRetweet: {t.Status.CurrentUserRetweet}");
-					//		System.Diagnostics.Debug.WriteLine($"Favorited: {t.Status.Favorited}");
-					//		System.Diagnostics.Debug.WriteLine($"FavoriteCount: {t.Status.FavoriteCount}");
-					//		System.Diagnostics.Debug.WriteLine($"CreatedAt: {t.Status.CreatedAt}");
-					//		System.Diagnostics.Debug.WriteLine($"OEmbedUrl: {t.Status.OEmbedUrl}");
-					//		WriteLineEntities(t.Status.Entities.MediaEntities);
-
-					//	}
-					//}
-#endif
 				}
 			}
 			catch (Exception ex)
@@ -158,32 +139,7 @@ namespace DuluthHomegrown2017
 			}
 		}
 
-		void WriteLineEntities(List<MediaEntity> mediaEntities)
-		{
-			if (mediaEntities.Count > 0)
-			{
-				foreach (var me in mediaEntities)
-				{
-					System.Diagnostics.Debug.WriteLine($"ID: {me.ID}");
-					System.Diagnostics.Debug.WriteLine($"Type: {me.Type}");
-					System.Diagnostics.Debug.WriteLine($"Url: {me.Url}");
-					System.Diagnostics.Debug.WriteLine($"DisplayUrl: {me.DisplayUrl}");
-					System.Diagnostics.Debug.WriteLine($"ExpandedUrl: {me.ExpandedUrl}");
-					System.Diagnostics.Debug.WriteLine($"MediaUrl: {me.MediaUrl}");
-					System.Diagnostics.Debug.WriteLine($"MediaUrlHttps: {me.MediaUrlHttps}");
-
-					foreach (var size in me.Sizes)
-					{
-						System.Diagnostics.Debug.WriteLine($"Type: {size.Type}");
-						System.Diagnostics.Debug.WriteLine($"Width: {size.Width}");
-						System.Diagnostics.Debug.WriteLine($"Height: {size.Height}");
-						System.Diagnostics.Debug.WriteLine($"Resize: {size.Resize}");
-					}
-				}
-			}
-		}
-
-		async Task<List<Status>> Search(string query)
+		async Task<List<Status>> SearchTweets(string query)
 		{
 			var result = new List<Status>();
 

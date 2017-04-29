@@ -2,7 +2,7 @@
 <ContentPage 
 	xmlns="http://xamarin.com/schemas/2014/forms" 
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-	x:Class="DuluthHomegrown2017.MoreDetailContact"
+	x:Class="HGMF2017.MoreDetailContact"
 	Title="Contact">
 	<ContentPage.Content>
 		<WebView Source="http://www.duluthhomegrown.org/contact/" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />

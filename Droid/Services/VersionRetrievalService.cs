@@ -1,9 +1,9 @@
-﻿using System;
-using DuluthHomegrown2017.Droid;
+using System;
+using HGMF2017.Droid;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(VersionRetrievalService))]
-namespace DuluthHomegrown2017.Droid
+namespace HGMF2017.Droid
 {
 	public class VersionRetrievalService : IVersionRetrievalService
 	{

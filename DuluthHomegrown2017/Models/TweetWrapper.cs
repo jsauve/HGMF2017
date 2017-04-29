@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Text;
 using LinqToTwitter;
 using MvvmHelpers;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class TweetWrapper : ObservableObject
 	{

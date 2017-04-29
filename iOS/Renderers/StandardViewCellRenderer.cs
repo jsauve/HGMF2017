@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(ViewCell), typeof(DuluthHomegrown2017.iOS.StandardViewCellRenderer))]
-namespace DuluthHomegrown2017.iOS
+[assembly: ExportRenderer(typeof(ViewCell), typeof(HGMF2017.iOS.StandardViewCellRenderer))]
+namespace HGMF2017.iOS
 {
 	public class StandardViewCellRenderer : ViewCellRenderer
 	{

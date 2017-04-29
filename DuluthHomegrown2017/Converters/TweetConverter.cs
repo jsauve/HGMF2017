@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Globalization;
 using Xamarin.Forms;
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	public class TweetConverter : IValueConverter
 	{

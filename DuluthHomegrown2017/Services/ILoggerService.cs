@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
     public interface ILoggerService
     {

@@ -1,10 +1,9 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MvvmHelpers;
 using Xamarin.Forms;
 
-namespace DuluthHomegrown2017
+namespace HGMF2017
 {
 	/// <summary>
 	/// Implements the INavigation interface on top of BaseViewModel.

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -6,7 +6,7 @@ using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
 
-namespace DuluthHomegrown2017.UITest
+namespace HGMF2017.UITest
 {
 	[TestFixture(Platform.Android)]
 	[TestFixture(Platform.iOS)]

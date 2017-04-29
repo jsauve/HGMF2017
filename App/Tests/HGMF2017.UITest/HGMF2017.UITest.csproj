@@ -41,11 +41,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\HGMF\HGMF2017.csproj">
-      <Project>{5E2C6CB7-7697-44E3-A8F4-BC8965E449DF}</Project>
-      <Name>HGMF2017</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

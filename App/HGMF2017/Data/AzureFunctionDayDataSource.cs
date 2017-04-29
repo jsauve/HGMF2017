@@ -24,8 +24,6 @@ namespace HGMF2017
 		{
 			HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, $"https://duluthhomegrown2017.azurewebsites.net/api/Schedule?code={Settings.AZURE_FUNCTION_SCHEDULE_API_KEY}");
 			return JsonConvert.DeserializeObject<List<Day>>(await _HttpClient.GetStringAsync(req.RequestUri));
-
-			return new List<Day>();
 		}
 	}
 }

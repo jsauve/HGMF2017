@@ -39,5 +39,6 @@ If you want the app to function properly, at the bare minimum you'll need an Azu
 
 
 ### Backend
-1. Deploy the files from the `Backend` folder to an [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) instance.
-2. Update the URL of your Azure Function in the [`App/HGMF2017/Data/DayDataSource.cs`](https://github.com/jsauve/HGMF2017/blob/6a3a991056ab4ac1f7f03732ad21a6a800f48dfb/App/HGMF2017/Data/DayDataSource.cs) file.
+1. Deploy the files from each of the folders in `Backend/Azure Functions` to an [Azure Function](https://azure.microsoft.com/en-us/services/functions/) instance. So, you'll create an Azure function for `Schedule` and another for `TwitterSearchQueryProvider`.
+2. Update the URL of the `Schedule` Azure Function in the [`App/HGMF2017/Data/DayDataSource.cs`](https://github.com/jsauve/HGMF2017/blob/6a3a991056ab4ac1f7f03732ad21a6a800f48dfb/App/HGMF2017/Data/DayDataSource.cs#L25) file.
+2. Update the URL of the `TwitterSearchQueryProvider` Azure Function in the [`App/HGMF2017/Data/DayDataSource.cs`](https://github.com/jsauve/HGMF2017/blob/6a3a991056ab4ac1f7f03732ad21a6a800f48dfb/App/HGMF2017/ViewModels/TweetsViewModel.cs#L115) file.

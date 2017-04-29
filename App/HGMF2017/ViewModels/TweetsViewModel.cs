@@ -12,7 +12,9 @@ namespace HGMF2017
 {
 	public class TweetsViewModel : BaseNavigationViewModel
 	{
-		HttpClient _HttpClient = new HttpClient() { BaseAddress = new Uri("https://twitter.com/") };
+		HttpClient _HttpClient = new HttpClient();
+
+		string _TwitterSearchQuery;
 
 		public event EventHandler NoNetworkDetected;
 
@@ -105,7 +107,15 @@ namespace HGMF2017
 			{
 				var statuses = new List<Status>();
 
-				statuses.AddRange(await SearchTweets("#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"));
+				// only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
+				if (string.IsNullOrWhiteSpace(_TwitterSearchQuery))
+				{
+					_HttpClient.BaseAddress = new Uri("https://duluthhomegrown2017.azurewebsites.net/");
+					// the query string coming from the web service looks similar to this: "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"
+					_TwitterSearchQuery = await _HttpClient.GetStringAsync($"api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
+				}
+
+				statuses.AddRange(await SearchTweets(_TwitterSearchQuery));
 
 				if (statuses.Count > 0)
 				{
@@ -115,7 +125,7 @@ namespace HGMF2017
 
 					foreach (var s in statuses)
 					{
-						var statusUrl = $"{_HttpClient.BaseAddress.ToString()}{s.User.ScreenNameResponse}/status/{s.StatusID}";
+						var statusUrl = $"https://twitter.com/{s.User.ScreenNameResponse}/status/{s.StatusID}";
 
 						var imageUrl = (string)null;
 

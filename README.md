@@ -40,4 +40,4 @@ If you want the app to function properly, at the bare minimum you'll need an Azu
 
 ### Backend
 1. Deploy the files from the `Backend` folder to an [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) instance.
-2. Update the URL of your Azure Function in the [`App/HGMF2017/Data/AzureFunctionDayDataSource.cs`](https://github.com/jsauve/HGMF2017/blob/6a3a991056ab4ac1f7f03732ad21a6a800f48dfb/App/HGMF2017/Data/DayDataSource.cs) file.
+2. Update the URL of your Azure Function in the [`App/HGMF2017/Data/DayDataSource.cs`](https://github.com/jsauve/HGMF2017/blob/6a3a991056ab4ac1f7f03732ad21a6a800f48dfb/App/HGMF2017/Data/DayDataSource.cs) file.

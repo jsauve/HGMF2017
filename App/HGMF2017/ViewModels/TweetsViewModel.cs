@@ -171,7 +171,7 @@ namespace HGMF2017
 				(from search in twitterCtx.Search
 				 where 
 				 search.Type == SearchType.Search &&
-				 search.Count == 1000 &&
+				 search.Count == 100 &&
 				 search.ResultType == ResultType.Mixed &&
 				 search.IncludeEntities == true &&
 				 search.Query == query

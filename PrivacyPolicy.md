@@ -2,6 +2,8 @@
 
 This privacy policy governs your use of the software application "HGMF2017 (unofficial)" (“Application”) for mobile devices that was created by Joseph Sauve. The Application is described as: "The unofficial app of the 2017 Duluth Homegrown Music Festival is a handy list of all of the week's bands and venues." 
 
+## Short Summary: we don't collect personal information.
+
 ## What information does the Application obtain and how is it used?
 
 ### User Provided Information 

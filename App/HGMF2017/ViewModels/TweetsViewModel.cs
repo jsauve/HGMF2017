@@ -164,28 +164,71 @@ namespace HGMF2017
 
 			await auth.AuthorizeAsync();
 
-			var twitterCtx = new TwitterContext(auth);
+			var twitterContext = new TwitterContext(auth);
 
-			var searchResponse =
-				await
-				(from search in twitterCtx.Search
-				 where 
-				 search.Type == SearchType.Search &&
-				 search.Count == 100 &&
-				 search.ResultType == ResultType.Mixed &&
-				 search.IncludeEntities == true &&
-				 search.Query == query
-				 select search)
-				.SingleOrDefaultAsync();
+			var tweets = await GetTweets(twitterContext, query);
 
-			var statuses = new List<Status>();
+			return tweets.Distinct().OrderByDescending(x => x.CreatedAt).ToList();
+		}
 
-			if (searchResponse?.Statuses != null)
+		async Task<List<Status>> GetTweets(TwitterContext twitterContext, string query, List<Status> results = null, ulong? lowestId = null)
+		{
+			if (results == null)
+				results = new List<Status>();
+
+			if (!lowestId.HasValue)
 			{
-				result = searchResponse.Statuses;
-			}
+				var firstresults = (await
+					(from search in twitterContext.Search
+					 where
+					 search.Type == SearchType.Search &&
+					 search.Count == 100 &&
+				     search.ResultType == ResultType.Mixed &&
+					 search.IncludeEntities == true &&
+					 search.Query == query
+					 select search)
+					 .SingleOrDefaultAsync())?.Statuses;
 
-			return result;
+				if (firstresults.Count < 100)
+				{
+					results.AddRange(firstresults);
+					return results;
+				}
+				else
+				{
+					var newLowestId = firstresults.Min(x => x.StatusID) - 1;
+					var newGreatestId = firstresults.Max(x => x.StatusID);
+
+					return await GetTweets(twitterContext, query, firstresults, newLowestId);
+				}
+			}
+			else
+			{
+				var subsequentResults = (await	
+					(from search in twitterContext.Search
+					 where
+					 search.Type == SearchType.Search &&
+				     search.Count == 100 &&
+					 search.ResultType == ResultType.Mixed &&
+					 search.IncludeEntities == true &&
+					 search.Query == query &&
+				     search.MaxID == lowestId.Value - 1
+					 select search)
+					 .SingleOrDefaultAsync())?.Statuses;
+
+				if (subsequentResults.Count < 100)
+				{
+					results.AddRange(subsequentResults);
+					return results;
+				}
+				else
+				{
+					var newLowestId = subsequentResults.Min(x => x.StatusID) - 1;
+					var newGreatestId = results.Max(x => x.StatusID);
+
+					return await GetTweets(twitterContext, query, subsequentResults, newLowestId);
+				}
+			}
 		}
 	}
 }

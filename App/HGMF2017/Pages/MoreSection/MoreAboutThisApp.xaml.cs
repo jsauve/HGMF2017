@@ -9,11 +9,6 @@ namespace HGMF2017
 			BindingContext = this;
 
 			InitializeComponent();
-			
-			IconLabel.IsEnabled = false;
-			IconLabel.IsVisible = false;
-			IconLabelText.IsEnabled = false;
-			IconLabelText.IsVisible = false;
 		}
 
 		public string Version 

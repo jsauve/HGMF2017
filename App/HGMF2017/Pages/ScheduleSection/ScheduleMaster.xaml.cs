@@ -31,7 +31,7 @@ namespace HGMF2017
 				DaysListView.EndRefresh();
 			};
 
-			ViewModel.OnError += async(sender, e) => {
+			ViewModel.OnError += async (sender, e) => {
 				await App.DisplayErrorAlert(this);
 				DaysListView.EndRefresh();
 			};
@@ -46,36 +46,36 @@ namespace HGMF2017
 
 			base.OnAppearing();
 
-			if (CrossConnectivity.Current.IsConnected)
+			if (!CrossConnectivity.Current.IsConnected)
+				await App.DisplayNoNetworkAlert(this);
+			
+			if (!_CheckedForNewVersion)
 			{
-				if (!_CheckedForNewVersion)
+				ViewModel.IsBusy = true;
+				var isNewerVersionAvailable = await IsNewerVersionAvailable();
+				ViewModel.IsBusy = false;
+
+				if (isNewerVersionAvailable)
 				{
-					ViewModel.IsBusy = true;
-					var isNewerVersionAvailable = await IsNewerVersionAvailable();
-					ViewModel.IsBusy = false;
+					var shouldLaunchAppStore = await DisplayAlert("New version available!", "There is a new version of the HGMF2017 app available. Would you like to get it now?", "Let's do it!", "Nah, maybe later");
 
-					if (isNewerVersionAvailable)
+					if (shouldLaunchAppStore)
 					{
-						var shouldLaunchAppStore = await DisplayAlert("New version available!", "There is a new version of the HGMF2017 app available. Would you like to get it now?", "Let's do it!", "Nah, maybe later");
+						if (Device.RuntimePlatform == "iOS")
+							Device.OpenUri(new Uri(App.iOSAppStoreUrl));
 
-						if (shouldLaunchAppStore)
-						{
-							if (Device.RuntimePlatform == "iOS")
-								Device.OpenUri(new Uri(App.iOSAppStoreUrl));
-
-							if (Device.RuntimePlatform == "Android")
-								Device.OpenUri(new Uri(App.AndroidAppStoreUrl));
-						}
+						if (Device.RuntimePlatform == "Android")
+							Device.OpenUri(new Uri(App.AndroidAppStoreUrl));
 					}
-
-					// ensure we only check once during each app lifecycle (as long as the OS doesnt kill the app)
-					_CheckedForNewVersion = true;
 				}
+
+				// ensure we only check once during each app lifecycle (as long as the OS doesnt kill the app)
+				_CheckedForNewVersion = true;
 			}
 
 			if (ViewModel.IsInitialized)
 				return;
-			
+
 			await ViewModel.ExecuteLoadDaysCommand();
 
 			IsAppearing = false;
@@ -88,7 +88,7 @@ namespace HGMF2017
 		/// <param name="e">The ItemTappedEventArgs</param>
 		void ItemTapped(object sender, ItemTappedEventArgs e)
 		{
-			Navigation.PushAsync(new ScheduleDetail() { BindingContext = new ScheduleDetailViewModel(ViewModel.Days, (Day)e.Item)});
+			Navigation.PushAsync(new ScheduleDetail() { BindingContext = new ScheduleDetailViewModel(ViewModel.Days, (Day)e.Item) });
 
 			// prevents the list from displaying the navigated item as selected when navigating back to the list
 			((ListView)sender).SelectedItem = null;

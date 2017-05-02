@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -8,6 +9,9 @@ namespace HGMF2017
 {
 	public partial class App : Application
 	{
+		public static readonly string iOSAppStoreUrl = "https://itunes.apple.com/us/app/hgmf2017-unofficial/id1229131015?mt=8";
+		public static readonly string AndroidAppStoreUrl = "https://play.google.com/store/apps/details?id=com.joesauve.duluthhomegrown2017";
+	
 		public App()
 		{
 			InitializeComponent();

@@ -1,5 +1,4 @@
-﻿using System;
-namespace HGMF2017
+﻿namespace HGMF2017
 {
 	public class Settings
 	{
@@ -9,8 +8,11 @@ namespace HGMF2017
 		public static readonly string PYZE_ANDROID_API_KEY = "PYZE_ANDROID_API_KEY_VALUE";
 		public static readonly string AZURE_FUNCTION_SCHEDULE_API_KEY = "AZURE_FUNCTION_SCHEDULE_API_KEY_VALUE";
 		public static readonly string AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY = "AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY_VALUE";
+		public static readonly string AZURE_FUNCTION_IOSVERSION_API_KEY = "AZURE_FUNCTION_IOSVERSION_API_KEY_VALUE";
+		public static readonly string AZURE_FUNCTION_ANDROIDVERSION_API_KEY = "AZURE_FUNCTION_ANDROIDVERSION_API_KEY_VALUE";
 		public static readonly string MOBILECENTER_IOS_APP_ID = "MOBILECENTER_IOS_APP_ID_VALUE";
 		public static readonly string MOBILECENTER_ANDROID_APP_ID = "MOBILECENTER_ANDROID_APP_ID_VALUE";
 		public static readonly string LYFT_CLIENT_ID = "LYFT_CLIENT_ID_VALUE";
+		public static readonly string UBER_CLIENT_ID = "UBER_CLIENT_ID_VALUE";
 	}
 }

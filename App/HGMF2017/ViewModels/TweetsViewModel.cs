@@ -168,7 +168,7 @@ namespace HGMF2017
 
 			var tweets = await GetTweets(twitterContext, query);
 
-			return tweets.Distinct().OrderByDescending(x => x.CreatedAt).ToList();
+			return tweets;
 		}
 
 		async Task<List<Status>> GetTweets(TwitterContext twitterContext, string query, List<Status> results = null, ulong? lowestId = null)
@@ -183,7 +183,7 @@ namespace HGMF2017
 					 where
 					 search.Type == SearchType.Search &&
 					 search.Count == 100 &&
-				     search.ResultType == ResultType.Mixed &&
+				     search.ResultType == ResultType.Recent &&
 					 search.IncludeEntities == true &&
 					 search.Query == query
 					 select search)
@@ -209,7 +209,7 @@ namespace HGMF2017
 					 where
 					 search.Type == SearchType.Search &&
 				     search.Count == 100 &&
-					 search.ResultType == ResultType.Mixed &&
+				     search.ResultType == ResultType.Recent &&
 					 search.IncludeEntities == true &&
 					 search.Query == query &&
 				     search.MaxID == lowestId.Value - 1

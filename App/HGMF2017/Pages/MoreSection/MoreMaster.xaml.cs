@@ -18,7 +18,8 @@ namespace HGMF2017
 				new MoreItem("About Homegrown", "About"),
 				new MoreItem("Contact", "PaperPlane"),
 				new MoreItem("News", "News"),
-				new MoreItem("About this app", "Smartphones")
+				new MoreItem("About this app", "Smartphones"),
+				new MoreItem("Privacy Policy", "Privacy")
 			};
 
 			InitializeComponent();
@@ -49,6 +50,9 @@ namespace HGMF2017
 				break;
 			case "About this app":
 				this.Navigation.PushAsync(new MoreAboutThisApp());
+				break;
+			case "Privacy Policy":
+				this.Navigation.PushAsync(new MorePrivacyPolicy());
 				break;
 			}
 

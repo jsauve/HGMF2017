@@ -173,6 +173,8 @@ namespace HGMF2017
 
 		async Task<List<Status>> GetTweets(TwitterContext twitterContext, string query, List<Status> results = null, ulong? lowestId = null)
 		{
+			int count = 100;
+
 			if (results == null)
 				results = new List<Status>();
 
@@ -182,22 +184,22 @@ namespace HGMF2017
 					(from search in twitterContext.Search
 					 where
 					 search.Type == SearchType.Search &&
-					 search.Count == 100 &&
-				     search.ResultType == ResultType.Recent &&
+					 search.Count == count &&
+				     search.ResultType == ResultType.Mixed &&
 					 search.IncludeEntities == true &&
 					 search.Query == query
 					 select search)
 					 .SingleOrDefaultAsync())?.Statuses;
 
-				if (firstresults.Count < 100)
+				results.AddRange(firstresults);
+
+				if (firstresults.Count < count)
 				{
-					results.AddRange(firstresults);
 					return results;
 				}
 				else
 				{
-					var newLowestId = firstresults.Min(x => x.StatusID) - 1;
-					var newGreatestId = firstresults.Max(x => x.StatusID);
+					var newLowestId = results.Min(x => x.StatusID);
 
 					return await GetTweets(twitterContext, query, firstresults, newLowestId);
 				}
@@ -208,25 +210,25 @@ namespace HGMF2017
 					(from search in twitterContext.Search
 					 where
 					 search.Type == SearchType.Search &&
-				     search.Count == 100 &&
-				     search.ResultType == ResultType.Recent &&
+				     search.Count == count &&
+				     search.ResultType == ResultType.Mixed &&
 					 search.IncludeEntities == true &&
 					 search.Query == query &&
 				     search.MaxID == lowestId.Value - 1
 					 select search)
 					 .SingleOrDefaultAsync())?.Statuses;
 
-				if (subsequentResults.Count < 100)
+				results.AddRange(subsequentResults);
+
+				if (subsequentResults.Count < count)
 				{
-					results.AddRange(subsequentResults);
 					return results;
 				}
 				else
 				{
-					var newLowestId = subsequentResults.Min(x => x.StatusID) - 1;
-					var newGreatestId = results.Max(x => x.StatusID);
+					var newLowestId = results.Min(x => x.StatusID);
 
-					return await GetTweets(twitterContext, query, subsequentResults, newLowestId);
+					return await GetTweets(twitterContext, query, results, newLowestId);
 				}
 			}
 		}

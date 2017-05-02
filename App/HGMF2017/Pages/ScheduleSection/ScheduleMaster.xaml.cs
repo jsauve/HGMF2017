@@ -48,7 +48,7 @@ namespace HGMF2017
 
 			if (!CrossConnectivity.Current.IsConnected)
 				await App.DisplayNoNetworkAlert(this);
-			
+
 			if (!_CheckedForNewVersion)
 			{
 				ViewModel.IsBusy = true;
@@ -98,31 +98,38 @@ namespace HGMF2017
 		{
 			bool result = false;
 
-			if (Device.RuntimePlatform == "iOS")
+			try
 			{
-				var availableVersionString = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/CurrentiOSVersion?code={Settings.AZURE_FUNCTION_IOSVERSION_API_KEY}");
-				var currentVersionString = DependencyService.Get<IVersionRetrievalService>().Version;
-
-				double availableVersion;
-				double currentVersion;
-				if (double.TryParse(availableVersionString, out availableVersion) && double.TryParse(currentVersionString, out currentVersion))
+				if (Device.RuntimePlatform == "iOS")
 				{
-					return (availableVersion > currentVersion);
+					var availableVersionString = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/CurrentiOSVersion?code={Settings.AZURE_FUNCTION_IOSVERSION_API_KEY}");
+					var currentVersionString = DependencyService.Get<IVersionRetrievalService>().Version;
+
+					double availableVersion;
+					double currentVersion;
+					if (double.TryParse(availableVersionString, out availableVersion) && double.TryParse(currentVersionString, out currentVersion))
+					{
+						return (availableVersion > currentVersion);
+					}
+				}
+
+				if (Device.RuntimePlatform == "Android")
+				{
+					var availableVersionString = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/CurrentAndroidVersion?code={Settings.AZURE_FUNCTION_ANDROIDVERSION_API_KEY}");
+					var currentVersionString = DependencyService.Get<IVersionRetrievalService>().Version;
+
+					double availableVersion;
+					double currentVersion;
+					if (double.TryParse(availableVersionString, out availableVersion) && double.TryParse(currentVersionString, out currentVersion))
+					{
+						return (availableVersion > currentVersion);
+					}
+
 				}
 			}
-
-			if (Device.RuntimePlatform == "Android")
+			catch (Exception ex)
 			{
-				var availableVersionString = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/CurrentAndroidVersion?code={Settings.AZURE_FUNCTION_ANDROIDVERSION_API_KEY}");
-				var currentVersionString = DependencyService.Get<IVersionRetrievalService>().Version;
-
-				double availableVersion;
-				double currentVersion;
-				if (double.TryParse(availableVersionString, out availableVersion) && double.TryParse(currentVersionString, out currentVersion))
-				{
-					return (availableVersion > currentVersion);
-				}
-
+				await App.DisplayErrorAlert(this);
 			}
 
 			return result;

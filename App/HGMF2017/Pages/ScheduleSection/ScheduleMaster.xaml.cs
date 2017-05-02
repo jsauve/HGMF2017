@@ -44,41 +44,52 @@ namespace HGMF2017
 
 			IsAppearing = true;
 
-			base.OnAppearing();
-
-			if (!CrossConnectivity.Current.IsConnected)
-				await App.DisplayNoNetworkAlert(this);
-
-			if (!_CheckedForNewVersion)
+			try
 			{
-				ViewModel.IsBusy = true;
-				var isNewerVersionAvailable = await IsNewerVersionAvailable();
-				ViewModel.IsBusy = false;
+				base.OnAppearing();
 
-				if (isNewerVersionAvailable)
+				if (!CrossConnectivity.Current.IsConnected)
+					await App.DisplayNoNetworkAlert(this);
+
+				if (!_CheckedForNewVersion)
 				{
-					var shouldLaunchAppStore = await DisplayAlert("New version available!", "There is a new version of the HGMF2017 app available. Would you like to get it now?", "Let's do it!", "Nah, maybe later");
+					ViewModel.IsBusy = true;
+					var isNewerVersionAvailable = await IsNewerVersionAvailable();
+					ViewModel.IsBusy = false;
 
-					if (shouldLaunchAppStore)
+					if (isNewerVersionAvailable)
 					{
-						if (Device.RuntimePlatform == "iOS")
-							Device.OpenUri(new Uri(App.iOSAppStoreUrl));
+						var shouldLaunchAppStore = await DisplayAlert("New version available!", "There is a new version of the HGMF2017 app available. Would you like to get it now?", "Let's do it!", "Nah, maybe later");
 
-						if (Device.RuntimePlatform == "Android")
-							Device.OpenUri(new Uri(App.AndroidAppStoreUrl));
+						if (shouldLaunchAppStore)
+						{
+							if (Device.RuntimePlatform == "iOS")
+								Device.OpenUri(new Uri(App.iOSAppStoreUrl));
+
+							if (Device.RuntimePlatform == "Android")
+								Device.OpenUri(new Uri(App.AndroidAppStoreUrl));
+						}
 					}
+
+					// ensure we only check once during each app lifecycle (as long as the OS doesnt kill the app)
+					_CheckedForNewVersion = true;
 				}
 
-				// ensure we only check once during each app lifecycle (as long as the OS doesnt kill the app)
-				_CheckedForNewVersion = true;
+				if (ViewModel.IsInitialized)
+					return;
+
+				await ViewModel.ExecuteLoadDaysCommand();
+
 			}
-
-			if (ViewModel.IsInitialized)
-				return;
-
-			await ViewModel.ExecuteLoadDaysCommand();
-
-			IsAppearing = false;
+			catch (Exception ex)
+			{
+				ex.ReportError();
+				await App.DisplayErrorAlert(this);
+			}
+			finally
+			{
+				IsAppearing = false;
+			}
 		}
 
 		/// <summary>
@@ -129,6 +140,7 @@ namespace HGMF2017
 			}
 			catch (Exception ex)
 			{
+				ex.ReportError();
 				await App.DisplayErrorAlert(this);
 			}
 

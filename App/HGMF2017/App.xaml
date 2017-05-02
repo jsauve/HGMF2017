@@ -22,6 +22,11 @@
 	                <OnPlatform x:TypeArguments="x:Double" Android="14" iOS="11" WinPhone="14" />
 	            </Setter>
         	</Style>
+			<Style x:Key="ScheduleMainLabel" TargetType="Label">
+				<Setter Property="FontSize" >
+	                <OnPlatform x:TypeArguments="x:Double" Android="19" iOS="16" WinPhone="14" />
+	            </Setter>
+			</Style>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

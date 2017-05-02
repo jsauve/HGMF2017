@@ -20,6 +20,27 @@ namespace HGMF2017
 			set { SetProperty(ref _Time, value); }
 		}
 
+		bool _TwentyOnePlus;
+		public bool TwentyOnePlus
+		{
+			get { return _TwentyOnePlus; }
+			set { SetProperty(ref _TwentyOnePlus, value); }
+		}
+
+		bool _WristbandRequired;
+		public bool WristbandRequired
+		{
+			get { return _WristbandRequired; }
+			set { SetProperty(ref _WristbandRequired, value); }
+		}
+
+		bool _WeeklongWristbandRequired;
+		public bool WeeklongWristbandRequired
+		{
+			get { return _WeeklongWristbandRequired; }
+			set { SetProperty(ref _WeeklongWristbandRequired, value); }
+		}
+
 		string _VenueName;
 		[JsonIgnore]
 		public string VenueName

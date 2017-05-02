@@ -17,7 +17,11 @@ namespace HGMF2017
 			var lyftToolBarItem = new ToolbarItem("Lyft", "LyftToolbar", () => {
 				DependencyService.Get<ILyftService>().OpenLyft();
 			});
+			var uberToolBarItem = new ToolbarItem("Uber", "UberToolbar", () => {
+				DependencyService.Get<IUberService>().OpenUber();			
+			});
 			scheduleNavPage.ToolbarItems.Add(lyftToolBarItem);
+			scheduleNavPage.ToolbarItems.Add(uberToolBarItem);
 			if (Device.RuntimePlatform == "iOS")
 				scheduleNavPage.Icon = "Calendar";
 

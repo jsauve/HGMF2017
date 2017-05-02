@@ -2075,6 +2075,7 @@ namespace HGMF2017.Droid
 			global::CarouselView.FormsPlugin.Android.Resource.Styleable.ViewStubCompat_android_id = global::HGMF2017.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::CarouselView.FormsPlugin.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::HGMF2017.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::CarouselView.FormsPlugin.Android.Resource.Styleable.ViewStubCompat_android_layout = global::HGMF2017.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::ViewMarkdown.Forms.Plugin.Droid.Resource.String.library_name = global::HGMF2017.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -4755,8 +4756,8 @@ namespace HGMF2017.Droid
 			// aapt resource value: 0x7f0200ff
 			public const int News = 2130837759;
 			
-			// aapt resource value: 0x7f020107
-			public const int notification_template_icon_bg = 2130837767;
+			// aapt resource value: 0x7f020109
+			public const int notification_template_icon_bg = 2130837769;
 			
 			// aapt resource value: 0x7f020100
 			public const int PaperPlane = 2130837760;
@@ -4765,19 +4766,25 @@ namespace HGMF2017.Droid
 			public const int PhotosToolbar = 2130837761;
 			
 			// aapt resource value: 0x7f020102
-			public const int rounded_button = 2130837762;
+			public const int Privacy = 2130837762;
 			
 			// aapt resource value: 0x7f020103
-			public const int Smartphones = 2130837763;
+			public const int rounded_button = 2130837763;
 			
 			// aapt resource value: 0x7f020104
-			public const int splash_screen = 2130837764;
+			public const int Smartphones = 2130837764;
 			
 			// aapt resource value: 0x7f020105
-			public const int Tickets = 2130837765;
+			public const int splash_screen = 2130837765;
 			
 			// aapt resource value: 0x7f020106
-			public const int TwitterLogo = 2130837766;
+			public const int Tickets = 2130837766;
+			
+			// aapt resource value: 0x7f020107
+			public const int TwitterLogo = 2130837767;
+			
+			// aapt resource value: 0x7f020108
+			public const int UberToolbar = 2130837768;
 			
 			static Drawable()
 			{
@@ -5615,11 +5622,11 @@ namespace HGMF2017.Droid
 			// aapt resource value: 0x7f06003e
 			public const int Hello = 2131099710;
 			
-			// aapt resource value: 0x7f060038
-			public const int _inappmessages = 2131099704;
-			
 			// aapt resource value: 0x7f060039
-			public const int _of_ = 2131099705;
+			public const int _inappmessages = 2131099705;
+			
+			// aapt resource value: 0x7f06003a
+			public const int _of_ = 2131099706;
 			
 			// aapt resource value: 0x7f060017
 			public const int abc_action_bar_home_description = 2131099671;
@@ -5723,8 +5730,8 @@ namespace HGMF2017.Droid
 			// aapt resource value: 0x7f060016
 			public const int character_counter_pattern = 2131099670;
 			
-			// aapt resource value: 0x7f06003d
-			public const int library_name = 2131099709;
+			// aapt resource value: 0x7f060038
+			public const int library_name = 2131099704;
 			
 			// aapt resource value: 0x7f060000
 			public const int mr_button_content_description = 2131099648;
@@ -5789,17 +5796,17 @@ namespace HGMF2017.Droid
 			// aapt resource value: 0x7f06002a
 			public const int search_menu_title = 2131099690;
 			
-			// aapt resource value: 0x7f06003a
-			public const int showing_ = 2131099706;
+			// aapt resource value: 0x7f06003b
+			public const int showing_ = 2131099707;
 			
 			// aapt resource value: 0x7f06002b
 			public const int status_bar_notification_info_overflow = 2131099691;
 			
-			// aapt resource value: 0x7f06003b
-			public const int tab_new = 2131099707;
-			
 			// aapt resource value: 0x7f06003c
-			public const int tab_previous = 2131099708;
+			public const int tab_new = 2131099708;
+			
+			// aapt resource value: 0x7f06003d
+			public const int tab_previous = 2131099709;
 			
 			static String()
 			{

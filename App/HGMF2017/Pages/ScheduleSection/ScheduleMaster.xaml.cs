@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 
@@ -7,6 +9,10 @@ namespace HGMF2017
 {
 	public partial class ScheduleMaster : ContentPage
 	{
+		HttpClient _HttpClient => new HttpClient();
+
+		bool _CheckedForNewVersion;
+
 		bool IsAppearing;
 
 		protected ScheduleMasterViewModel ViewModel => BindingContext as ScheduleMasterViewModel;
@@ -33,15 +39,42 @@ namespace HGMF2017
 
 		protected override async void OnAppearing()
 		{
-			base.OnAppearing();
-
 			if (IsAppearing)
 				return;
 
+			IsAppearing = true;
+
+			base.OnAppearing();
+
+			if (CrossConnectivity.Current.IsConnected)
+			{
+				if (!_CheckedForNewVersion)
+				{
+					ViewModel.IsBusy = true;
+					var isNewerVersionAvailable = await IsNewerVersionAvailable();
+					ViewModel.IsBusy = false;
+
+					if (isNewerVersionAvailable)
+					{
+						var shouldLaunchAppStore = await DisplayAlert("New version available!", "There is a new version of the HGMF2017 app available. Would you like to get it now?", "Let's do it!", "Nah, maybe later");
+
+						if (shouldLaunchAppStore)
+						{
+							if (Device.RuntimePlatform == "iOS")
+								Device.OpenUri(new Uri(App.iOSAppStoreUrl));
+
+							if (Device.RuntimePlatform == "Android")
+								Device.OpenUri(new Uri(App.AndroidAppStoreUrl));
+						}
+					}
+
+					// ensure we only check once during each app lifecycle (as long as the OS doesnt kill the app)
+					_CheckedForNewVersion = true;
+				}
+			}
+
 			if (ViewModel.IsInitialized)
 				return;
-
-			IsAppearing = true;
 			
 			await ViewModel.ExecuteLoadDaysCommand();
 
@@ -59,6 +92,40 @@ namespace HGMF2017
 
 			// prevents the list from displaying the navigated item as selected when navigating back to the list
 			((ListView)sender).SelectedItem = null;
+		}
+
+		async Task<bool> IsNewerVersionAvailable()
+		{
+			bool result = false;
+
+			if (Device.RuntimePlatform == "iOS")
+			{
+				var availableVersionString = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/CurrentiOSVersion?code={Settings.AZURE_FUNCTION_IOSVERSION_API_KEY}");
+				var currentVersionString = DependencyService.Get<IVersionRetrievalService>().Version;
+
+				double availableVersion;
+				double currentVersion;
+				if (double.TryParse(availableVersionString, out availableVersion) && double.TryParse(currentVersionString, out currentVersion))
+				{
+					return (availableVersion > currentVersion);
+				}
+			}
+
+			if (Device.RuntimePlatform == "Android")
+			{
+				var availableVersionString = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/CurrentAndroidVersion?code={Settings.AZURE_FUNCTION_ANDROIDVERSION_API_KEY}");
+				var currentVersionString = DependencyService.Get<IVersionRetrievalService>().Version;
+
+				double availableVersion;
+				double currentVersion;
+				if (double.TryParse(availableVersionString, out availableVersion) && double.TryParse(currentVersionString, out currentVersion))
+				{
+					return (availableVersion > currentVersion);
+				}
+
+			}
+
+			return result;
 		}
 	}
 }

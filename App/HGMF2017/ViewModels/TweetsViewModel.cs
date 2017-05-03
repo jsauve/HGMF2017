@@ -214,7 +214,7 @@ namespace HGMF2017
 				     search.ResultType == ResultType.Mixed &&
 					 search.IncludeEntities == true &&
 					 search.Query == query &&
-				     search.MaxID == lowestId.Value - 1
+				     (long)search.MaxID == (long)lowestId.Value - 1
 					 select search)
 					 .SingleOrDefaultAsync())?.Statuses;
 

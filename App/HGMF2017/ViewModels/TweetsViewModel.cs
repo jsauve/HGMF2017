@@ -14,7 +14,7 @@ namespace HGMF2017
 	{
 		HttpClient _HttpClient = new HttpClient();
 
-		string _TwitterSearchQuery;
+		string _TwitterSearchQuery = "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets";
 
 		public event EventHandler NoNetworkDetected;
 
@@ -108,12 +108,11 @@ namespace HGMF2017
 				var statuses = new List<Status>();
 
 				// only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
-				if (string.IsNullOrWhiteSpace(_TwitterSearchQuery))
-				{
-					_HttpClient.BaseAddress = new Uri("https://duluthhomegrown2017.azurewebsites.net/");
-					// the query string coming from the web service looks similar to this: "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"
-					_TwitterSearchQuery = await _HttpClient.GetStringAsync($"api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
-				}
+				//if (string.IsNullOrWhiteSpace(_TwitterSearchQuery))
+				//{
+				//	// the query string coming from the web service looks similar to this: "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"
+				//	_TwitterSearchQuery = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
+				//}
 
 				statuses.AddRange(await SearchTweets(_TwitterSearchQuery));
 

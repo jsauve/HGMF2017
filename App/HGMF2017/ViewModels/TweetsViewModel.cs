@@ -14,7 +14,7 @@ namespace HGMF2017
 	{
 		HttpClient _HttpClient = new HttpClient();
 
-		string _TwitterSearchQuery = "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets";
+		string _TwitterSearchQuery;
 
 		public event EventHandler NoNetworkDetected;
 
@@ -103,17 +103,16 @@ namespace HGMF2017
 
 			IsBusy = true;
 
-			//try
-			//{
+			try
+			{
 				var statuses = new List<Status>();
 
-				// only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
-				//if (string.IsNullOrWhiteSpace(_TwitterSearchQuery))
-				//{
-				//	// the query string coming from the web service looks similar to this: "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"
-				//	_TwitterSearchQuery = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
-				//	//_TwitterSearchQuery = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/TwitterSearchQueryProvider?code=blah");
-				//}
+				 //only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
+				if (string.IsNullOrWhiteSpace(_TwitterSearchQuery))
+				{
+					// the query string coming from the web service looks similar to this: "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"
+					_TwitterSearchQuery = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
+				}
 
 				statuses.AddRange(await SearchTweets(_TwitterSearchQuery));
 
@@ -137,16 +136,16 @@ namespace HGMF2017
 						Tweets.Add(new TweetWrapper(s, imageUrl));
 					}
 				}
-			//}
-			//catch (Exception ex)
-			//{
-			//	ex.ReportError();
-			//	RaiseOnErrorEvent();
-			//}
-			//finally
-			//{
-			//	IsBusy = false;
-			//}
+			}
+			catch (Exception ex)
+			{
+				ex.ReportError();
+				RaiseOnErrorEvent();
+			}
+			finally
+			{
+				IsBusy = false;
+			}
 		}
 
 		async Task<List<Status>> SearchTweets(string query)

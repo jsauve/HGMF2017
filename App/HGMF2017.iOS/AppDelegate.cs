@@ -15,9 +15,9 @@ namespace HGMF2017.iOS
 	{
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-//#if !DEBUG
+#if !DEBUG
             MobileCenter.Start(Settings.MOBILECENTER_IOS_APP_ID, typeof(Analytics), typeof(Crashes));
-//#endif
+#endif
 
 #if ENABLE_TEST_CLOUD
 				Xamarin.Calabash.Start();

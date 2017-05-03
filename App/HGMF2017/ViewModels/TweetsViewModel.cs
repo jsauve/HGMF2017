@@ -107,12 +107,11 @@ namespace HGMF2017
 			{
 				var statuses = new List<Status>();
 
-				// only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
+				 //only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
 				if (string.IsNullOrWhiteSpace(_TwitterSearchQuery))
 				{
-					_HttpClient.BaseAddress = new Uri("https://duluthhomegrown2017.azurewebsites.net/");
 					// the query string coming from the web service looks similar to this: "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"
-					_TwitterSearchQuery = await _HttpClient.GetStringAsync($"api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
+					_TwitterSearchQuery = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
 				}
 
 				statuses.AddRange(await SearchTweets(_TwitterSearchQuery));
@@ -155,7 +154,7 @@ namespace HGMF2017
 
 			var auth = new ApplicationOnlyAuthorizer
 			{
-				CredentialStore = new InMemoryCredentialStore()
+				CredentialStore = new SingleUserInMemoryCredentialStore()
 				{
 					ConsumerKey = Settings.TWITTER_API_CONSUMER_KEY,
 					ConsumerSecret = Settings.TWITTER_API_CONSUMER_SECRET
@@ -214,7 +213,7 @@ namespace HGMF2017
 				     search.ResultType == ResultType.Mixed &&
 					 search.IncludeEntities == true &&
 					 search.Query == query &&
-				     search.MaxID == lowestId.Value - 1
+				     (long)search.MaxID == (long)lowestId.Value - 1 // must cast these `ulong` values to `long`, otherwise Xamarin.iOS' equality comparer freaks out and throws an invalid cast exception
 					 select search)
 					 .SingleOrDefaultAsync())?.Statuses;
 

@@ -213,7 +213,7 @@ namespace HGMF2017
 				     search.ResultType == ResultType.Mixed &&
 					 search.IncludeEntities == true &&
 					 search.Query == query &&
-				     (long)search.MaxID == (long)lowestId.Value - 1
+				     (long)search.MaxID == (long)lowestId.Value - 1 // must cast these `ulong` values to `long`, otherwise Xamarin.iOS' equality comparer freaks out and throws an invalid cast exception
 					 select search)
 					 .SingleOrDefaultAsync())?.Statuses;
 

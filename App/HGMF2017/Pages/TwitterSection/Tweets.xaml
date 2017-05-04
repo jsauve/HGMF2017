@@ -5,15 +5,15 @@
 	x:Class="HGMF2017.Tweets" 
 	xmlns:local="clr-namespace:HGMF2017"
 	xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	x:Name="TweetsPage"
 	Title="#HGMF17 / @DHGMF">
 	<ContentPage.Resources>
 		<ResourceDictionary>
-			<local:TweetImageConverter x:Key="TweetImageConverter" />
 			<local:TweetTimestampConverter x:Key="TweetTimestampConverter" />
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
-		<ListView x:Name="TweetsListView" ItemsSource="{Binding Tweets}" CachingStrategy="RecycleElement" HasUnevenRows="true" ItemTapped="ItemTapped" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshTweetsCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+		<ListView x:Name="TweetsListView" ItemsSource="{Binding Tweets}" HasUnevenRows="true" ItemTapped="ItemTapped" IsPullToRefreshEnabled="true" RefreshCommand="{Binding RefreshTweetsCommand}" IsRefreshing="{Binding IsBusy, Mode=OneWay}">
 			<ListView.ItemTemplate>
 				<DataTemplate>
 					<ViewCell>
@@ -28,7 +28,14 @@
 							</StackLayout>
 							<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Margin="0,10">
 								<Label x:Name="tweetText" Text="{Binding Status.Text}" Style="{StaticResource TweetTextStyle}" />
-								<Image Source="{Binding Status, Converter={StaticResource TweetImageConverter}}" IsVisible="{Binding HasImage}" IsEnabled="{Binding HasImage}" HeightRequest="100" WidthRequest="100" />
+								<ff:CachedImage Source="{Binding ImageUrl}" IsVisible="{Binding HasImage}" IsEnabled="{Binding HasImage}" HeightRequest="100" WidthRequest="100" DownsampleToViewSize="true" DownsampleWidth="100">
+									<ff:CachedImage.GestureRecognizers>
+										<TapGestureRecognizer 
+										NumberOfTapsRequired="1" 
+										Command="{Binding Path=BindingContext.ImageTapCommand, Source={x:Reference TweetsPage}}" 
+										CommandParameter="{Binding ImageUrl}" />
+									</ff:CachedImage.GestureRecognizers>
+								</ff:CachedImage>
 							</StackLayout>
 							<Label x:Name="tweetFooter" Text="{Binding Status.CreatedAt, Converter={StaticResource TweetTimestampConverter}}" TextColor="Gray" VerticalOptions="End" Style="{StaticResource TweetFooterStyle}" />
 						</StackLayout>

@@ -23,6 +23,8 @@ namespace HGMF2017
 
 		string _TwitterSearchQuery;
 
+		public int SelectedPosition { get; set; }
+
 		public event EventHandler NoNetworkDetected;
 
 		protected virtual void RaiseNoNetworkDetectedEvent()
@@ -92,6 +94,29 @@ namespace HGMF2017
 			await FetchTweets();
 
 			RefreshTweetsCommand.ChangeCanExecute();
+		}
+
+		Command<string> _ImageTapCommand;
+		public Command<string> ImageTapCommand
+		{
+			get { return _ImageTapCommand ?? (_ImageTapCommand = new Command<string>(async imageUrl => await ImageTapCommandCommand(imageUrl))); }
+		}
+
+		public async Task ImageTapCommandCommand(string imageUrl)
+		{
+			var tweetCount = Tweets.Count;
+
+			ImageTapCommand.ChangeCanExecute();
+
+			SelectedPosition = TweetsWithImages.Select(x => x.ImageUrl).ToList().IndexOf(imageUrl);
+
+			var tweetDetailPage = new TweetImageDetailPage() { BindingContext = this };
+			var tweetDetailNavPage = new NavigationPage(tweetDetailPage) { BarBackgroundColor = Color.Black };
+			var backToolBarItem = new ToolbarItem("Back", null, async () => { await PopModalAsync(); });
+			tweetDetailNavPage.ToolbarItems.Add(backToolBarItem);
+			await PushModalAsync(tweetDetailNavPage);
+
+			ImageTapCommand.ChangeCanExecute();
 		}
 
 		async Task FetchTweets()

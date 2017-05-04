@@ -10,6 +10,7 @@ namespace HGMF2017
 		{
 			InitializeComponent();
 
+			// Disables the swipping between tabs functionality in Android. Necessary because the Schedule tab's content is swipable as well.
 			On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
 
 			// setup Schedule tab

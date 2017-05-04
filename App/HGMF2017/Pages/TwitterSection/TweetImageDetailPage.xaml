@@ -7,13 +7,13 @@
 	xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
 	BackgroundColor="Black">
 	<ContentPage.Content>
-		<cv:CarouselViewControl BackgroundColor="Black" x:Name="TweetImageCarousel" ItemsSource="{Binding TweetsWithImages}" Position="0" Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+		<cv:CarouselViewControl BackgroundColor="Black" x:Name="TweetImageCarousel" ItemsSource="{Binding TweetsWithImages}" InterPageSpacing="0" Position="{Binding SelectedPosition}" Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
 			<cv:CarouselViewControl.ItemTemplate>
 				<DataTemplate>
 						<StackLayout BackgroundColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="10">
-							<ff:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" DownsampleToViewSize="true" Source="{Binding ImageUrl}" />
+							<ff:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageUrl}" />
 							<StackLayout>
-								<Label Text="{Binding Handle, StringFormat='@{0}'}" TextColor="White" />
+								<Label Text="{Binding Handle}" TextColor="White" />
 								<Label Text="{Binding Text}" TextColor="White" />
 							</StackLayout>
 						</StackLayout>

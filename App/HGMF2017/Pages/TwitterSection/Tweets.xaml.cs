@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using FFImageLoading.Forms;
 using LinqToTwitter;
 using Xamarin.Forms;
 
@@ -87,34 +88,5 @@ namespace HGMF2017
 			// prevents the list from displaying the navigated item as selected when navigating back to the list
 			((ListView)sender).SelectedItem = null;
 		}
-
-		// Leaving this here in case I get around to solving why image taps in a listview don't work reliably on Android
-		//async void OnImageTap(object sender, EventArgs args)
-		//{
-		//	IsPresentingModally = true;
-
-		//	var imageSender = (Image)sender;
-
-		//	var imageSource = (UriImageSource)imageSender.Source;
-
-		//	ViewModel.SelectedImagePosition = ViewModel.ImageUrls.Select(x => x.ImageUrl).ToList().IndexOf(imageSource.Uri.ToString());
-
-		//	var tweetDetailPage = new TweetImageDetailPage() { BindingContext = this.ViewModel };
-
-		//	Page detailPage;
-
-		//	if (Device.RuntimePlatform == "iOS")
-		//	{
-		//		detailPage = new NavigationPage(tweetDetailPage) { BarBackgroundColor = Color.Black };
-
-		//		var toolBarItem = new ToolbarItem("Back", null, () => { Navigation.PopModalAsync(); });
-
-		//		detailPage.ToolbarItems.Add(toolBarItem);
-		//	}
-		//	else
-		//		detailPage = tweetDetailPage;
-
-		//	await Navigation.PushModalAsync(detailPage);
-		//}
 	}
 }

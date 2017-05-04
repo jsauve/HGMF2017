@@ -38,6 +38,7 @@ namespace HGMF2017
 				}
 				else
 				{
+					tweetsViewModel.SelectedPosition = 0;
 					var tweetDetailPage = new TweetImageDetailPage() { BindingContext = tweetsViewModel };
 					var tweetDetailNavPage = new NavigationPage(tweetDetailPage) { BarBackgroundColor = Color.Black };
 					var backToolBarItem = new ToolbarItem("Back", null, async () => { await Navigation.PopModalAsync(); });

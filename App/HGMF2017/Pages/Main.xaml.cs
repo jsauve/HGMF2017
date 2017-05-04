@@ -1,5 +1,5 @@
 using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
-
+using System.Linq;
 using Xamarin.Forms;
 
 namespace HGMF2017
@@ -31,7 +31,7 @@ namespace HGMF2017
 			var tweetsPage = new Tweets() { BindingContext = tweetsViewModel };
 			NavigationPage tweetsNavPage = new NavigationPage(tweetsPage) { Title = "Tweets" };
 			var photosToolBarItem = new ToolbarItem("Photos", "PhotosToolbar", async () => {
-				if (tweetsViewModel.ImageUrls.Count < 1)
+				if (tweetsViewModel.Tweets.Count(x => x.HasImage) < 1)
 				{
 					await App.DisplayNoPhotosAlert(this);
 				}

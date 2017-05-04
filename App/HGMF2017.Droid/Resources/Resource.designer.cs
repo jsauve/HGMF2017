@@ -4419,8 +4419,8 @@ namespace HGMF2017.Droid
 			// aapt resource value: 0x7f0200ff
 			public const int News = 2130837759;
 			
-			// aapt resource value: 0x7f020109
-			public const int notification_template_icon_bg = 2130837769;
+			// aapt resource value: 0x7f02010a
+			public const int notification_template_icon_bg = 2130837770;
 			
 			// aapt resource value: 0x7f020100
 			public const int PaperPlane = 2130837760;
@@ -4435,19 +4435,22 @@ namespace HGMF2017.Droid
 			public const int rounded_button = 2130837763;
 			
 			// aapt resource value: 0x7f020104
-			public const int Smartphones = 2130837764;
+			public const int Settings = 2130837764;
 			
 			// aapt resource value: 0x7f020105
-			public const int splash_screen = 2130837765;
+			public const int Smartphones = 2130837765;
 			
 			// aapt resource value: 0x7f020106
-			public const int Tickets = 2130837766;
+			public const int splash_screen = 2130837766;
 			
 			// aapt resource value: 0x7f020107
-			public const int TwitterLogo = 2130837767;
+			public const int Tickets = 2130837767;
 			
 			// aapt resource value: 0x7f020108
-			public const int UberToolbar = 2130837768;
+			public const int TwitterLogo = 2130837768;
+			
+			// aapt resource value: 0x7f020109
+			public const int UberToolbar = 2130837769;
 			
 			static Drawable()
 			{

@@ -12,7 +12,14 @@ namespace HGMF2017
 {
 	public class TweetsViewModel : BaseNavigationViewModel
 	{
+		public TweetsViewModel()
+		{
+			CanLoadMore = true;
+		}
+
 		HttpClient _HttpClient = new HttpClient();
+
+		ulong? _LowestTweetId = null;
 
 		string _TwitterSearchQuery;
 
@@ -49,16 +56,7 @@ namespace HGMF2017
 			}
 		}
 
-		ObservableRangeCollection<TweetImageWrapper> _ImageUrls;
-		public ObservableRangeCollection<TweetImageWrapper> ImageUrls
-		{
-			get { return _ImageUrls ?? (_ImageUrls = new ObservableRangeCollection<TweetImageWrapper>()); }
-			set
-			{
-				_ImageUrls = value;
-				OnPropertyChanged("ImageUrls");
-			}
-		}
+		public IEnumerable<TweetWrapper> TweetsWithImages => Tweets.Where(x => x?.Status?.Entities?.MediaEntities?.Count(y => y.Type == "photo") > 0);
 
 		Command _LoadTweetsCommand;
 		public Command LoadTweetsCommand
@@ -85,6 +83,12 @@ namespace HGMF2017
 		{
 			RefreshTweetsCommand.ChangeCanExecute();
 
+			Tweets.Clear();
+
+			_LowestTweetId = null;
+
+			CanLoadMore = true;
+
 			await FetchTweets();
 
 			RefreshTweetsCommand.ChangeCanExecute();
@@ -105,36 +109,27 @@ namespace HGMF2017
 
 			try
 			{
-				var statuses = new List<Status>();
-
-				 //only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
+				//only grab the twitter search query once per instantiation of the view model, otherwise the web service will get hit too often
 				if (string.IsNullOrWhiteSpace(_TwitterSearchQuery))
 				{
 					// the query string coming from the web service looks similar to this: "#hgmf17 OR @dhgmf OR from:dhgmf -filter:retweets"
 					_TwitterSearchQuery = await _HttpClient.GetStringAsync($"https://duluthhomegrown2017.azurewebsites.net/api/TwitterSearchQueryProvider?code={Settings.AZURE_FUNCTION_TWITTERSEARCHQUERY_API_KEY}");
 				}
 
-				statuses.AddRange(await SearchTweets(_TwitterSearchQuery));
+				var statuses = await SearchTweets(_TwitterSearchQuery);
 
 				if (statuses.Count > 0)
 				{
-					Tweets = new ObservableRangeCollection<TweetWrapper>();
-
-					ImageUrls = new ObservableRangeCollection<TweetImageWrapper>();
+					var tweetWrappers = new List<TweetWrapper>();
 
 					foreach (var s in statuses)
 					{
-						var statusUrl = $"https://twitter.com/{s.User.ScreenNameResponse}/status/{s.StatusID}";
-
-						var imageUrl = (string)null;
-
-						imageUrl = s?.Entities?.MediaEntities?.FirstOrDefault(x => x.Type == "photo")?.MediaUrl;
-
-						if (!string.IsNullOrWhiteSpace(imageUrl))
-							ImageUrls.Add(new TweetImageWrapper(imageUrl, s?.Text, s?.User?.ScreenNameResponse, s?.Entities?.HashTagEntities?.Select(x => x.Tag)?.ToList()));
-
-						Tweets.Add(new TweetWrapper(s, imageUrl));
+						tweetWrappers.Add(new TweetWrapper(s));
 					}
+
+					Tweets.AddRange(tweetWrappers);
+
+					_LowestTweetId = Tweets.Min(x => x.Status.StatusID);
 				}
 			}
 			catch (Exception ex)
@@ -170,66 +165,45 @@ namespace HGMF2017
 			return tweets;
 		}
 
-		async Task<List<Status>> GetTweets(TwitterContext twitterContext, string query, List<Status> results = null, ulong? lowestId = null)
+		async Task<List<Status>> GetTweets(TwitterContext twitterContext, string query)
 		{
 			int count = 100;
 
-			if (results == null)
-				results = new List<Status>();
-
-			if (!lowestId.HasValue)
+			if (!_LowestTweetId.HasValue)
 			{
 				var firstresults = (await
 					(from search in twitterContext.Search
 					 where
 					 search.Type == SearchType.Search &&
 					 search.Count == count &&
-				     search.ResultType == ResultType.Mixed &&
+					 search.ResultType == ResultType.Mixed &&
 					 search.IncludeEntities == true &&
 					 search.Query == query
 					 select search)
 					 .SingleOrDefaultAsync())?.Statuses;
 
-				results.AddRange(firstresults);
-
 				if (firstresults.Count < count)
-				{
-					return results;
-				}
-				else
-				{
-					var newLowestId = results.Min(x => x.StatusID);
+					CanLoadMore = false;
 
-					return await GetTweets(twitterContext, query, firstresults, newLowestId);
-				}
+				return firstresults;
 			}
-			else
-			{
-				var subsequentResults = (await	
-					(from search in twitterContext.Search
-					 where
-					 search.Type == SearchType.Search &&
-				     search.Count == count &&
-				     search.ResultType == ResultType.Mixed &&
-					 search.IncludeEntities == true &&
-					 search.Query == query &&
-				     (long)search.MaxID == (long)lowestId.Value - 1 // must cast these `ulong` values to `long`, otherwise Xamarin.iOS' equality comparer freaks out and throws an invalid cast exception
-					 select search)
-					 .SingleOrDefaultAsync())?.Statuses;
 
-				results.AddRange(subsequentResults);
+			var subsequentResults = (await
+				(from search in twitterContext.Search
+				 where
+				 search.Type == SearchType.Search &&
+				 search.Count == count &&
+				 search.ResultType == ResultType.Mixed &&
+				 search.IncludeEntities == true &&
+				 search.Query == query &&
+				 (long)search.MaxID == (long)_LowestTweetId.Value - 1 // must cast these `ulong` values to `long`, otherwise Xamarin.iOS' equality comparer freaks out and throws an invalid cast exception
+				 select search)
+				 .SingleOrDefaultAsync())?.Statuses;
 
-				if (subsequentResults.Count < count)
-				{
-					return results;
-				}
-				else
-				{
-					var newLowestId = results.Min(x => x.StatusID);
+			if (subsequentResults.Count < count)
+				CanLoadMore = false;
 
-					return await GetTweets(twitterContext, query, results, newLowestId);
-				}
-			}
+			return subsequentResults;
 		}
 	}
 }

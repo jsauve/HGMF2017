@@ -16,6 +16,18 @@ namespace HGMF2017
 		public Tweets()
 		{
 			InitializeComponent();
+
+			TweetsListView.ItemAppearing += async (sender, e) => { 
+				if (ViewModel.IsBusy || TweetsListView.ItemsSource.ToEnumerable().Count() == 0)
+				return;
+
+				var lastItem = TweetsListView.ItemsSource.Cast<TweetWrapper>().OrderBy(x => x.Status.CreatedAt).First();
+
+				if (((TweetWrapper)e.Item).Status.StatusID == lastItem.Status.StatusID && ViewModel.CanLoadMore)
+				{
+					await ViewModel.ExecuteLoadTweetsCommand();
+				}
+			};
 		}
 
 		protected override void OnBindingContextChanged()

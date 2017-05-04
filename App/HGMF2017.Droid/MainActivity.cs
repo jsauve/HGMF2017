@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
+using FFImageLoading.Forms.Droid;
 
 namespace HGMF2017.Droid
 {
@@ -28,6 +29,8 @@ namespace HGMF2017.Droid
             base.OnCreate (bundle);
 
             Forms.Init (this, bundle);
+
+			CachedImageRenderer.Init();
 
             CarouselViewRenderer.Init ();
 

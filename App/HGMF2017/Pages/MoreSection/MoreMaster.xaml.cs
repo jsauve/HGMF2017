@@ -19,7 +19,8 @@ namespace HGMF2017
 				new MoreItem("Contact", "PaperPlane"),
 				new MoreItem("News", "News"),
 				new MoreItem("About this app", "Smartphones"),
-				new MoreItem("Privacy Policy", "Privacy")
+				new MoreItem("Privacy Policy", "Privacy"),
+				new MoreItem("Settings", "Settings")
 			};
 
 			InitializeComponent();
@@ -53,6 +54,9 @@ namespace HGMF2017
 				break;
 			case "Privacy Policy":
 				this.Navigation.PushAsync(new MorePrivacyPolicy());
+				break;
+			case "Settings":
+				this.Navigation.PushAsync(new MoreSettings());
 				break;
 			}
 

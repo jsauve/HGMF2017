@@ -7,6 +7,7 @@ using Xamarin.Forms.Platform.iOS;
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
+using FFImageLoading.Forms.Touch;
 
 namespace HGMF2017.iOS
 {
@@ -26,6 +27,8 @@ namespace HGMF2017.iOS
 			Forms.Init();
 
 			CarouselViewRenderer.Init();
+
+			CachedImageRenderer.Init();
 
 			LoadApplication(new App());
 

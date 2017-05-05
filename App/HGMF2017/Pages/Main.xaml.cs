@@ -10,24 +10,25 @@ namespace HGMF2017
 		{
 			InitializeComponent();
 
-			// Disables the swipping between tabs functionality in Android. Necessary because the Schedule tab's content is swipable as well.
+			// Disables the swiping between tabs functionality in Android. Necessary because the Schedule tab's content is swipable as well.
 			On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
 
-			// setup Schedule tab
+			#region Setup the Schedule tab's page
 			var scheduleNavPage = new NavigationPage(new ScheduleMaster() { BindingContext = new ScheduleMasterViewModel() }) { Title = "Schedule" };
 			var lyftToolBarItem = new ToolbarItem("Lyft", "LyftToolbar", () => {
 				DependencyService.Get<ILyftService>().OpenLyft();
 			});
 			var uberToolBarItem = new ToolbarItem("Uber", "UberToolbar", () => {
-				DependencyService.Get<IUberService>().OpenUber();			
+				DependencyService.Get<IUberService>().OpenUber();
 			});
 			scheduleNavPage.ToolbarItems.Add(lyftToolBarItem);
 			scheduleNavPage.ToolbarItems.Add(uberToolBarItem);
 			if (Device.RuntimePlatform == "iOS")
 				scheduleNavPage.Icon = "Calendar";
+			#endregion
 
 
-			// setup Tweets tab
+			#region Setup the Tweets tab's page
 			var tweetsViewModel = new TweetsViewModel();
 			var tweetsPage = new Tweets() { BindingContext = tweetsViewModel };
 			NavigationPage tweetsNavPage = new NavigationPage(tweetsPage) { Title = "Tweets" };
@@ -49,12 +50,15 @@ namespace HGMF2017
 			tweetsNavPage.ToolbarItems.Add(photosToolBarItem);
 			if (Device.RuntimePlatform == "iOS")
 				tweetsNavPage.Icon = "Twitter";
+			#endregion
 
-			// setup More tab
+			#region Setup the More tab's page
 			var moreNavPage = new NavigationPage(new MoreMaster()) { Title = "More" };
 			if (Device.RuntimePlatform == "iOS")
 				moreNavPage.Icon = "More";
+			#endregion
 
+			// add each tab
 			Children.Add(scheduleNavPage);
 			Children.Add(tweetsNavPage);
 			Children.Add(moreNavPage);

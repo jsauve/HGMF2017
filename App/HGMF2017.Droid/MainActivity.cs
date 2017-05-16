@@ -36,5 +36,12 @@ namespace HGMF2017.Droid
 
             LoadApplication (new App ());
         }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+
+			//TODO: Put version-checking code here
+		}
     }
 }

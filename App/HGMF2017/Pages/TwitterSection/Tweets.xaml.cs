@@ -36,13 +36,13 @@ namespace HGMF2017
 			base.OnBindingContextChanged();
 
 			ViewModel.NoNetworkDetected += async (sender, e) => {
-				await App.DisplayNoNetworkAlert(this);
 				TweetsListView.EndRefresh();
+				await App.DisplayNoNetworkAlert(this);
 			};
 
 			ViewModel.OnError += async (sender, e) => {
-				await App.DisplayErrorAlert(this);
 				TweetsListView.EndRefresh();
+				await App.DisplayErrorAlert(this);
 			};
 		}
 

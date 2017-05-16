@@ -85,9 +85,7 @@
     <Compile Include="ViewModels\TweetsViewModel.cs" />
     <Compile Include="ViewModels\ScheduleDetailViewModel.cs" />
     <Compile Include="Utility\ExtensionMethods.cs" />
-    <Compile Include="Converters\TweetImageConverter.cs" />
     <Compile Include="Models\TweetWrapper.cs" />
-    <Compile Include="Converters\TweetTimestampConverter.cs" />
     <Compile Include="Data\DayDataSource.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Models\Performance.cs" />
@@ -237,7 +235,6 @@
     <Folder Include="Data\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Abstractions\" />
-    <Folder Include="Converters\" />
     <Folder Include="Pages\ScheduleSection\" />
     <Folder Include="Pages\TwitterSection\" />
     <Folder Include="Pages\MoreSection\" />

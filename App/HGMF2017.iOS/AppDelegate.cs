@@ -42,5 +42,12 @@ namespace HGMF2017.iOS
 #endif
 			return base.WillFinishLaunching(uiApplication, launchOptions);
 		}
+
+		public override void OnActivated(UIApplication uiApplication)
+		{
+			base.OnActivated(uiApplication);
+
+            //TODO: Put version-checking code here
+		}
 	}
 }
